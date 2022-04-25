@@ -4,14 +4,43 @@ permalink: /ar/
 
 <!doctype html>
 <html>
-    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
-    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
-    <script src="https://raw.githack.com/AR-js-org/studio-backend/master/src/modules/marker/tools/gesture-detector.js"></script>
-    <script src="https://raw.githack.com/AR-js-org/studio-backend/master/src/modules/marker/tools/gesture-handler.js"></script>
-    <body style='margin : 0px; overflow: hidden;'>
-        <a-scene embedded arjs='sourceType: webcam;'>
-            <a-box position='0 0.5 0' material='opacity: .7;' color="red"></a-box>
+    <head>
+        <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+        <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+        <script src="https://raw.githack.com/AR-js-org/studio-backend/master/src/modules/marker/tools/gesture-detector.js"></script>
+        <script src="https://raw.githack.com/AR-js-org/studio-backend/master/src/modules/marker/tools/gesture-handler.js"></script>
+        <script>
+            AFRAME.registerComponent('markerhandler', {
+                init: function () {
+                    this.el.sceneEl.addEventListener('markerFound', () => {
+                        // redirect to custom URL e.g. google.com
+                        window.location = 'https://www.google.com/';
+                        })
+                }
+            });
+        </script>
+    </head>
+
+    <body style="margin: 0; overflow: hidden;">
+        <a-scene
+            vr-mode-ui="enabled: false;"
+            loading-screen="enabled: false;"
+            arjs="trackingMethod: best; sourceType: webcam;"
+            id="scene"
+            embedded
+            gesture-detector
+        >
             <a-marker-camera preset='hiro'></a-marker-camera>
+                <a-image
+                    src="files/asset.png"
+                    scale="5 5 5"
+                    class="clickable"
+                    rotation="-90 0 0"
+                    gesture-handler
+                ></a-image>
+            </a-marker>
+
+            <a-entity camera></a-entity>
         </a-scene>
     </body>
 </html>
