@@ -15,20 +15,22 @@ permalink: /sus/
         <a-scene
             vr-mode-ui="enabled: false;"
             loading-screen="enabled: true;"
-            arjs="trackingMethod: best; sourceType: webcam; debugUIEnabled: false;"
             id="scene"
             embedded
             gesture-detector
         >
+            <a-assets>
+                <a-asset-item id="among-obj" src="files/among.obj"></a-asset-item>
+                <a-asset-item id="among-mtl" src="files/among.mtl"></a-asset-item>
+            </a-assets>
             <a-marker 
                 preset='hiro'
                 emitevents='true'
             >
                 <a-entity
+                    obj-model="obj: #among-obj; mtl: #among-mtl"
                     position="0 0 0"
                     scale="0.05 0.05 0.05"
-                    obj-model="obj: url("https://www.artesting0.github.io/files/among.obj"); 
-                               mtl: url("https://www.artesting0.github.io/files/among.mtl")"
                 ></a-entity>
             </a-marker>
             <a-entity camera></a-entity>
