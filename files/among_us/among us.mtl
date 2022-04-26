@@ -12,4 +12,4 @@ newmtl wire_177088027
 	Ks 0.3500 0.3500 0.3500
 	norm Plastic_4K_Normal.jpg
 	map_Kd Plastic_4K_Diffuse.jpg
-	refl -type Plastic_4K_Reflect.jpg
+	map_Ks Plastic_4K_Reflect.jpg
