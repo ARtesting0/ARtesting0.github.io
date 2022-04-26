@@ -4,37 +4,35 @@ permalink: /sus/
 
 <!doctype html>
 <html>
-    <head>
-        <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
-        <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
-        <script src="https://raw.githack.com/AR-js-org/studio-backend/master/src/modules/marker/tools/gesture-detector.js"></script>
-        <script src="https://raw.githack.com/AR-js-org/studio-backend/master/src/modules/marker/tools/gesture-handler.js"></script>
-    </head>
+<script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+<script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+<script src="https://raw.githack.com/AR-js-org/studio-backend/master/src/modules/marker/tools/gesture-detector.js"></script>
+<script src="https://raw.githack.com/AR-js-org/studio-backend/master/src/modules/marker/tools/gesture-handler.js"></script>
 
-    <body style="margin: 0; overflow: hidden;">
-        <a-scene
-            vr-mode-ui="enabled: false;"
-            loading-screen="enabled: true;"
-            id="scene"
-            embedded
-            gesture-detector
+<body style="margin: 0; overflow: hidden;">
+    <a-scene
+        vr-mode-ui="enabled: false;"
+        loading-screen="enabled: true;"
+        id="scene"
+        embedded
+        gesture-detector
+    >
+        <a-assets>
+            <a-asset-item id="among-obj" src="../files/among.obj"></a-asset-item>
+            <a-asset-item id="among-mtl" src="../files/among.mtl"></a-asset-item>
+        </a-assets>
+        <a-marker 
+            preset='hiro'
+            emitevents='true'
         >
-            <a-assets>
-                <a-asset-item id="among-obj" src="../files/among.obj"></a-asset-item>
-                <a-asset-item id="among-mtl" src="../files/among.mtl"></a-asset-item>
-            </a-assets>
-            <a-marker 
-                preset='hiro'
-                emitevents='true'
-            >
-                <a-entity
-                    obj-model="obj: #among-obj mtl: #among-mtl"
-                    position="0 0 0"
-                    scale="0.005 0.005 0.005"
-                    gesture-handler
-                ></a-entity>
-            </a-marker>
-            <a-entity camera></a-entity>
-        </a-scene>
-    </body>
+            <a-entity
+                obj-model="obj: #among-obj mtl: #among-mtl"
+                position="0 0 0"
+                scale="0.005 0.005 0.005"
+                gesture-handler
+            ></a-entity>
+        </a-marker>
+        <a-entity camera></a-entity>
+    </a-scene>
+</body>
 </html>
