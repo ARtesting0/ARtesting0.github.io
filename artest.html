@@ -4,43 +4,41 @@ permalink: /ar/
 
 <!doctype html>
 <html>
-    <head>
-        <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
-        <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
-        <script src="https://raw.githack.com/AR-js-org/studio-backend/master/src/modules/marker/tools/gesture-detector.js"></script>
-        <script src="https://raw.githack.com/AR-js-org/studio-backend/master/src/modules/marker/tools/gesture-handler.js"></script>
-        <script>
-            AFRAME.registerComponent('markerhandler', {
-                init: function () {
-                    this.el.sceneEl.addEventListener('markerFound', () => {
-                        // things to occur when marker is found
-                        console.log("i found it guys i found the marker its here")
-                    })
-                }
-            });
-        </script>
-    </head>
+<script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+<script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+<script src="https://raw.githack.com/AR-js-org/studio-backend/master/src/modules/marker/tools/gesture-detector.js"></script>
+<script src="https://raw.githack.com/AR-js-org/studio-backend/master/src/modules/marker/tools/gesture-handler.js"></script>
+<script>
+    AFRAME.registerComponent('markerhandler', {
+        init: function () {
+            this.el.sceneEl.addEventListener('markerFound', () => {
+                // things to occur when marker is found
+                console.log("i found it guys i found the marker its here")
+            })
+        }
+    });
+</script>
 
-    <body style="margin: 0; overflow: hidden;">
-        <a-scene
-            vr-mode-ui="enabled: false;"
-            loading-screen="enabled: true;"
-            arjs="trackingMethod: best; sourceType: webcam; debugUIEnabled: false;"
-            id="scene"
-            embedded
-            gesture-detector
+<body style="margin: 0; overflow: hidden;">
+    <a-scene
+        vr-mode-ui="enabled: false;"
+        loading-screen="enabled: true;"
+        arjs="trackingMethod: best; sourceType: webcam; debugUIEnabled: false;"
+        id="scene"
+        embedded
+        gesture-detector
+    >
+        <a-marker 
+            preset='hiro'
+            emitevents='true'
         >
-            <a-marker 
-                preset='hiro'
-                emitevents='true'
-            >
-                <a-image 
-                    rotation="0 0 0"
-                    position="0 1 0"
-                    src="../files/babyshark.jpg">
-                </a-image>
-            </a-marker>
-            <a-entity camera></a-entity>
-        </a-scene>
-    </body>
+            <a-image 
+                rotation="0 0 0"
+                position="0 1 0"
+                src="../files/babyshark.jpg">
+            </a-image>
+        </a-marker>
+        <a-entity camera></a-entity>
+    </a-scene>
+</body>
 </html>
