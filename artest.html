@@ -24,13 +24,16 @@ permalink: /ar/
     <body style="margin: 0; overflow: hidden;">
         <a-scene
             vr-mode-ui="enabled: false;"
-            loading-screen="enabled: false;"
-            arjs="trackingMethod: best; sourceType: webcam;"
+            loading-screen="enabled: true;"
+            arjs="trackingMethod: best; sourceType: webcam; debugUIEnabled: false;"
             id="scene"
             embedded
             gesture-detector
         >
-            <a-marker preset='hiro'>
+            <a-marker 
+                preset='hiro'
+                emitevents='true'
+            >
                 <a-entity
                     position="0 0 0"
                     scale="0.05 0.05 0.05"
