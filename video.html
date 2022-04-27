@@ -23,10 +23,13 @@ permalink: /video/
 
         <!-- Using the asset management system. -->
    
-        <a-marker-camera preset='hiro'>
+        <a-marker 
+            preset='hiro'
+            emitevents='true'
+        >
                <a-video id = "vid"  rotation =  "-62.584 -3.936 4.509"  scale="5 5 1" src="#alpha">
           <video scale= "20 20 1" src="#source"></video></a-video>
-        </a-marker-camera>
+        </a-marker>
     </a-scene>
   </body>
   
