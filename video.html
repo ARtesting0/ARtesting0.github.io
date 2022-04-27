@@ -18,7 +18,12 @@ permalink: /video/
         gesture-detector
     >
         <a-assets>
-            <video id="alpha" autoplay loop="true" src="../files/fire.webm"></video>
+            <video 
+                id="alpha" 
+                autoplay loop="true" 
+                src="../files/fire.webm"
+            >
+            </video>
         </a-assets>
 
         <!-- Using the asset management system. -->
@@ -27,7 +32,12 @@ permalink: /video/
             preset='hiro'
             emitevents='true'
         >
-            <a-video id = "vid"  rotation =  "0 0 0"  scale="1 1 1" src="#alpha"></a-video>
+            <a-video  
+                rotation="0 0 0"  
+                position="0 1 0"
+                src="#alpha"
+            >
+            </a-video>
         </a-marker>
     </a-scene>
   </body>
