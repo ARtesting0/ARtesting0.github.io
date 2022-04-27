@@ -4,14 +4,17 @@ permalink: /video/
 <!doctype html>
 <html>
 <head>
-    <link rel="stylesheet" type="text/css" href="../styles.css" />
     <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
     <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
     <script src="https://raw.githack.com/AR-js-org/studio-backend/master/src/modules/marker/tools/gesture-detector.js"></script>
     <script src="https://raw.githack.com/AR-js-org/studio-backend/master/src/modules/marker/tools/gesture-handler.js"></script>
 <head>
 <body>
-    <a id="playButton" onclick="play('alpha')"><div class="btn btn-primary play-overlay menu-overlay"></div></a>
+    <div style='position: fixed; top: 10px; width:100%; text-align: center; z-index: 1;'>
+        <button>
+        I AM A BUTTON
+        </button>
+    </div>
     <a-scene 
         vr-mode-ui="enabled: false;"
         loading-screen="enabled: true;"
@@ -44,24 +47,4 @@ permalink: /video/
         </a-marker>
     </a-scene>
   </body>
-  
-  <script>
-      function play(id){
-          var aVideoAsset = document.querySelector('#' + id);
-          aVideoAsset.play().catch(function (error) {
-              aVideoAsset.pause();
-              hideOrShow("playButton");
-          });
-          aVideoAsset.setAttribute('loop', 'false');
-          hideOrShow('playButton');
-      }
-      function hideOrShow(id) {
-          var x = document.getElementById(id);
-          if (x.style.display === "none") {
-              x.style.display = "block";
-          } else {
-              x.style.display = "none";
-          }
-      }
-  </script>
 </html> 
