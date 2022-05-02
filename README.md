@@ -1,4 +1,4 @@
-- ⬜ Test video AR
+- ⬜ fix video AR
 - ✅ Fix detect when marker found/lost
 - ⬜ Better homepage
 - ⬜ Start button? & start screen
