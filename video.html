@@ -3,12 +3,23 @@ permalink: /video/
 ---
 <!doctype html>
 <html>
-<head>
-    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
-    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
-    <script src="https://raw.githack.com/AR-js-org/studio-backend/master/src/modules/marker/tools/gesture-detector.js"></script>
-    <script src="https://raw.githack.com/AR-js-org/studio-backend/master/src/modules/marker/tools/gesture-handler.js"></script>
-<head>
+<script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+<script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+<script>
+    AFRAME.registerComponent('markerhandler', {
+        init: function () {
+            this.el.sceneEl.addEventListener('markerFound', () => {
+                // things to occur when marker is found
+                console.log("i found it guys i found the marker its here")
+            })
+            this.el.sceneEl.addEventListener('markerLost', () => {
+                // things to occur when marker is found
+                console.log("bruh where the marker go")
+            })
+        }
+    });
+</script>
+
 <body>
     <div style='position: relative; height: 100vh;'>
         <button
@@ -25,7 +36,6 @@ permalink: /video/
         arjs="trackingMethod: best; sourceType: webcam; debugUIEnabled: false;"
         id="scene"
         embedded
-        gesture-detector
     >
         <a-assets>
             <video 
@@ -41,6 +51,7 @@ permalink: /video/
         <a-marker 
             preset='hiro'
             emitevents='true'
+            markerhandler
         >
             <a-video  
                 rotation="0 0 0"  
