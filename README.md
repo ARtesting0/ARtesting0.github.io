@@ -1,6 +1,7 @@
-1. Test video AR :white_large_square:
-2. Overlay on AR camera screen :white_large_square:
-3. Fix detect when marker found/lost :white_check_mark:
-4. Start screen / Better homepage :white_large_square:
+⬜ - Test video AR
+✅ - Fix detect when marker found/lost
+⬜ - Better homepage
+⬜ - Start button? & start screen
+⬜ - Overlaid marker status (detected / finding)
 
 ![](files/frame.png?raw=true)
