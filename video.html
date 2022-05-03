@@ -25,9 +25,11 @@ permalink: /video/
           if (video.paused) {
               video.play();
               document.querySelector("#playpausebutton").src = "../files/pause-256.png";
+              console.log("playing");
           } else {
               video.pause();
-              document.querySelector("#playpausebutton").src = "../files/white-play-256.png"
+              document.querySelector("#playpausebutton").src = "../files/white-play-256.png";
+              console.log("paused");
           }
 </script>
     
@@ -45,7 +47,7 @@ permalink: /video/
         type="button"
         onclick="playpause("alpha")"
     >
-        <img src="../files/white-play-256.png" height ="20px" width="20px" />
+        <img src="../files/white-play-256.png" height ="10px" width="10px" />
     </button>
     <a-scene 
         vr-mode-ui="enabled: false;"
