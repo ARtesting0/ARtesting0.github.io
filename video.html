@@ -19,7 +19,12 @@ permalink: /video/
         }
     });
 </script>
-
+<script>
+    function play(id) {
+        var video = document.querySelector('#' + id);
+        video.play();
+</script>
+    
 <body>
     <button
         style='position: absolute; 
@@ -29,7 +34,7 @@ permalink: /video/
                background-color: #59BFFF; 
                border: none;'
         type="button"
-        onclick="document.querySelector("#alpha").play();"
+        onclick="play('alpha')"
     >
         <img src="../files/white-play-256.png" height ="20px" width="20px" />
     </button>
