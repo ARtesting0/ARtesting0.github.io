@@ -3,16 +3,16 @@ permalink: /video/
 ---
 <!doctype html>
 <html>
-<script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
-<script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+<script src = "https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+<script src = "https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
 <script>
-    AFRAME.registerComponent('markerhandler', {
+    AFRAME.registerComponent("markerhandler", {
         init: function () {
-            this.el.sceneEl.addEventListener('markerFound', () => {
+            this.el.sceneEl.addEventListener("markerFound", () => {
                 // things to occur when marker is found
                 console.log("i found it guys i found the marker its here")
             })
-            this.el.sceneEl.addEventListener('markerLost', () => {
+            this.el.sceneEl.addEventListener("markerLost", () => {
                 // things to occur when marker is found
                 console.log("bruh where the marker go")
             })
@@ -20,22 +20,30 @@ permalink: /video/
     });
 </script>
 <script>
-    function play(id) {
-        var video = document.querySelector('#' + id);
-        video.play();
+    function playpause(id) {
+        var video = document.querySelector("#" + id);
+          if (video.paused) {
+              video.play();
+              document.querySelector("#playpausebutton").src = "../files/pause-256.png";
+          } else {
+              video.pause();
+              document.querySelector("#playpausebutton").src = "../files/white-play-256.png"
+          }
 </script>
     
 <body>
     <button
-        style='position: absolute; 
-               right: 5px; 
-               bottom: 5px; 
-               padding: 10px 10px; 
-               background-color: #59BFFF; 
-               border: none;
-               border-radius: 50%;'
+        id="playpausebutton"
+        style="
+            position: absolute; 
+            right: 5px; 
+            bottom: 5px; 
+            padding: 10px 10px; 
+            background-color: #59BFFF; 
+            border: none;
+            border-radius: 50%;"
         type="button"
-        onclick="play('alpha')"
+        onclick="playpause("alpha")"
     >
         <img src="../files/white-play-256.png" height ="20px" width="20px" />
     </button>
@@ -55,8 +63,8 @@ permalink: /video/
             </video>
         </a-assets> 
         <a-marker 
-            preset='hiro'
-            emitevents='true'
+            preset="hiro"
+            emitevents="true"
             markerhandler
         >
             <a-video  
