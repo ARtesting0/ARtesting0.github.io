@@ -10,11 +10,11 @@ permalink: /video/
         init: function () {
             this.el.sceneEl.addEventListener("markerFound", () => {
                 // things to occur when marker is found
-                console.log("i found it guys i found the marker its here")
+                console.log("i found it guys i found the marker its here");
             })
             this.el.sceneEl.addEventListener("markerLost", () => {
                 // things to occur when marker is found
-                console.log("bruh where the marker go")
+                console.log("bruh where the marker go");
             })
         }
     });
@@ -25,12 +25,13 @@ permalink: /video/
           if (video.paused) {
               video.play();
               document.querySelector("#playpausebutton").src = "../files/pause-256.png";
-              console.log("playing");
+              console.log("playing " + id);
           } else {
               video.pause();
               document.querySelector("#playpausebutton").src = "../files/white-play-256.png";
-              console.log("paused");
+              console.log("paused " + id);
           }
+    }
 </script>
     
 <body>
@@ -47,7 +48,7 @@ permalink: /video/
         type="button"
         onclick="playpause("alpha")"
     >
-        <img src="../files/white-play-256.png" height ="10px" width="10px" />
+        <img src="../files/white-play-256.png" height ="25px" width="25px" />
     </button>
     <a-scene 
         vr-mode-ui="enabled: false;"
