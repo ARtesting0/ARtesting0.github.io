@@ -21,6 +21,7 @@ permalink: /video/
 </script>
 <script>
     function playpause(id) {
+        console.log("play pause");
         var video = document.querySelector("#" + id);
           if (video.paused) {
               video.play();
