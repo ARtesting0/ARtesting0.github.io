@@ -1,0 +1,84 @@
+---
+permalink: /animation/
+---
+<!doctype html>
+<html>
+<script src = "https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+<script src = "https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+<script>
+    AFRAME.registerComponent("markerhandler", {
+        init: function () {
+            this.el.sceneEl.addEventListener("markerFound", () => {
+                // things to occur when marker is found
+                console.log("Marker detected");
+            })
+            this.el.sceneEl.addEventListener("markerLost", () => {
+                // things to occur when marker is found
+                console.log("Marker gone");
+            })
+        }
+    });
+</script>
+<script>
+    function playpause(id) {
+        console.log("play pause");
+        var video = document.querySelector("#" + id);
+          if (video.paused) {
+              video.play();
+              document.querySelector("#playpausebutton").src = "../files/pause-256.png";
+              console.log("playing " + id);
+          } else {
+              video.pause();
+              document.querySelector("#playpausebutton").src = "../files/white-play-256.png";
+              console.log("paused " + id);
+          }
+    }
+</script>
+    
+<body>
+    <button
+        id="playpausebutton"
+        style="
+            position: absolute; 
+            right: 5px; 
+            bottom: 5px; 
+            padding: 10px 10px; 
+            background-color: #59BFFF; 
+            border: none;
+            border-radius: 50%;"
+        type="button"
+        onclick=playpause("animation")
+    >
+        <img src="../files/white-play-256.png" height ="25px" width="25px" />
+    </button>
+    <a-scene 
+        vr-mode-ui="enabled: false;"
+        loading-screen="enabled: true;"
+        arjs="trackingMethod: best; sourceType: webcam; debugUIEnabled: false;"
+        id="scene"
+        embedded
+    >
+        <a-assets>
+            <video 
+                id="animation" 
+                autoplay loop="true" 
+                src="../files/Untitled_Artwork.mp4"
+            >
+            </video>
+        </a-assets> 
+        <a-marker 
+            preset="hiro"
+            emitevents="true"
+            markerhandler
+        >
+            <a-video  
+                rotation="270 0 0"
+                position="0 0 0"
+                src="#animation"
+            >
+            </a-video>
+        </a-marker>
+        <a-entity camera></a-entity>
+    </a-scene>
+  </body>
+</html> 
