@@ -10,11 +10,11 @@ permalink: /video/
         init: function () {
             this.el.sceneEl.addEventListener("markerFound", () => {
                 // things to occur when marker is found
-                console.log("i found it guys i found the marker its here");
+                console.log("Marker detected");
             })
             this.el.sceneEl.addEventListener("markerLost", () => {
                 // things to occur when marker is found
-                console.log("bruh where the marker go");
+                console.log("Marker gone");
             })
         }
     });
