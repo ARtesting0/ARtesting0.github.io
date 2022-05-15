@@ -40,21 +40,6 @@ permalink: /animation/
 </head>
 
 <body>
-    <button
-        id="playpausebutton"
-        style="
-            position: absolute; 
-            right: 5px; 
-            bottom: 5px; 
-            padding: 10px 10px; 
-            background-color: #59BFFF; 
-            border: none;
-            border-radius: 50%;"
-        type="button"
-        onclick=playpause("animation")
-    >
-        <img src="../files/white-play-256.png" height ="25px" width="25px" />
-    </button>
     <a-scene 
         vr-mode-ui="enabled: false;"
         loading-screen="enabled: true;"
@@ -86,5 +71,20 @@ permalink: /animation/
         </a-marker>
         <a-entity camera></a-entity>
     </a-scene>
+    <button
+        id="playpausebutton"
+        style="
+            position: absolute; 
+            right: 5px; 
+            bottom: 5px; 
+            padding: 10px 10px; 
+            background-color: #59BFFF; 
+            border: none;
+            border-radius: 50%;"
+        type="button"
+        onclick=playpause("animation")
+    >
+        <img src="../files/white-play-256.png" height ="25px" width="25px" />
+    </button>
   </body>
 </html> 
