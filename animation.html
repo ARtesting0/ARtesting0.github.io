@@ -13,18 +13,26 @@ permalink: /animation/
             this.el.sceneEl.addEventListener("markerFound", () => {
                 // things to occur when marker is found
                 console.log("Marker detected");
+                video.play();
+                if (video.playing) {
+                    document.querySelector('#buttonimg').src = "../files/pause-256.png";
+                }
             })
             this.el.sceneEl.addEventListener("markerLost", () => {
                 // things to occur when marker is found
                 console.log("Marker gone");
+                video.pause();
+                if (video.paused) {
+                    document.querySelector('#buttonimg').src = "../files/white-play-256.png";
+                }
             })
         }
     });
 </script>
 <script>
+    var video = document.querySelector("#" + id);
     function playpause(id) {
         console.log("play pause");
-        var video = document.querySelector("#" + id);
           if (video.paused) {
               video.play();
               document.querySelector('#buttonimg').src = "../files/pause-256.png";
