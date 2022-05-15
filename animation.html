@@ -37,13 +37,15 @@ permalink: /animation/
         var video = document.querySelector('#animation');
           if (video.paused) {
               video.play();
-              document.querySelector('#buttonimg').src = "../files/pause-256.png";
-              console.log("playing video");
+              if (video.readyState >= 3 && !video.paused) {
+                  document.querySelector('#buttonimg').src = "../files/pause-256.png";
+                  console.log("playing video");
+              }
           } else {
               video.pause();
-              if (video.readyState >= 3 && !video.paused) {
-              document.querySelector('#buttonimg').src = "../files/play-256.png";
-              console.log("paused video");
+              if (video.paused) {
+                  document.querySelector('#buttonimg').src = "../files/play-256.png";
+                  console.log("paused video");
               }
           }
     }
