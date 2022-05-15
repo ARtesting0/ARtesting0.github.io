@@ -30,8 +30,8 @@ permalink: /animation/
     });
 </script>
 <script>
-    var video = document.querySelector("#" + id);
-    function playpause(id) {
+    var video = document.querySelector('#animation');
+    function playpause() {
         console.log("play pause");
           if (video.paused) {
               video.play();
@@ -90,7 +90,7 @@ permalink: /animation/
             border: none;
             border-radius: 50%;"
         type="button"
-        onclick=playpause("animation")
+        onclick=playpause()
     >
         <img 
              src="../files/white-play-256.png" 
