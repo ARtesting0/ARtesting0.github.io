@@ -27,11 +27,11 @@ permalink: /animation/
         var video = document.querySelector("#" + id);
           if (video.paused) {
               video.play();
-              document.querySelector("#playpausebutton").src = "../files/pause-256.png";
+              document.querySelector("#buttonimg").src = "../files/pause-256.png";
               console.log("playing " + id);
           } else {
               video.pause();
-              document.querySelector("#playpausebutton").src = "../files/white-play-256.png";
+              document.querySelector("#buttonimg").src = "../files/white-play-256.png";
               console.log("paused " + id);
           }
     }
@@ -83,7 +83,12 @@ permalink: /animation/
         type="button"
         onclick=playpause("animation")
     >
-        <img src="../files/white-play-256.png" height ="25px" width="25px" />
+        <img 
+             src="../files/white-play-256.png" 
+             height ="25px" 
+             width="25px"
+             id="buttonimg"
+             />
     </button>
   </body>
 </html> 
