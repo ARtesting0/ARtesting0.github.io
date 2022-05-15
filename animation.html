@@ -17,6 +17,7 @@ permalink: /animation/
                 video.play();
                 if (video.playing) {
                     document.querySelector('#buttonimg').src = "../files/pause-256.png";
+                    console.log("playing video");
                 }
             })
             this.el.sceneEl.addEventListener("markerLost", () => {
@@ -25,6 +26,7 @@ permalink: /animation/
                 video.pause();
                 if (video.paused) {
                     document.querySelector('#buttonimg').src = "../files/white-play-256.png";
+                    console.log("paused video");
                 }
             })
         }
@@ -37,11 +39,11 @@ permalink: /animation/
           if (video.paused) {
               video.play();
               document.querySelector('#buttonimg').src = "../files/pause-256.png";
-              console.log("playing " + id);
+              console.log("playing video");
           } else {
               video.pause();
               document.querySelector('#buttonimg').src = "../files/white-play-256.png";
-              console.log("paused " + id);
+              console.log("paused video");
           }
     }
 </script>
