@@ -27,11 +27,11 @@ permalink: /animation/
         var video = document.querySelector("#" + id);
           if (video.paused) {
               video.play();
-              document.querySelector("#buttonimg").src = "../files/pause-256.png";
+              document.querySelector('#buttonimg').src = "../files/pause-256.png";
               console.log("playing " + id);
           } else {
               video.pause();
-              document.querySelector("#buttonimg").src = "../files/white-play-256.png";
+              document.querySelector('#buttonimg').src = "../files/white-play-256.png";
               console.log("paused " + id);
           }
     }
