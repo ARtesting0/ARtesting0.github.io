@@ -8,49 +8,45 @@ permalink: /video/
 <script>
     AFRAME.registerComponent("markerhandler", {
         init: function () {
+            var video = document.querySelector('#alpha');
             this.el.sceneEl.addEventListener("markerFound", () => {
                 // things to occur when marker is found
                 console.log("Marker detected");
+                video.play();
+                if (!video.paused) {
+                    video.src = "../files/pause-256.png";
+                    console.log("playing video");
+                }
             })
             this.el.sceneEl.addEventListener("markerLost", () => {
                 // things to occur when marker is found
                 console.log("Marker gone");
+                video.pause();
+                if (video.paused) {
+                    video.src = "../files/play-256.png";
+                    console.log("paused video");
+                }
             })
         }
     });
 </script>
 <script>
-    function playpause(id) {
+    function playpause() {
         console.log("play pause");
-        var video = document.querySelector("#" + id);
+        var video = document.querySelector('#alpha');
           if (video.paused) {
               video.play();
               document.querySelector("#playpausebutton").src = "../files/pause-256.png";
-              console.log("playing " + id);
+              console.log("playing video");
           } else {
               video.pause();
-              document.querySelector("#playpausebutton").src = "../files/white-play-256.png";
-              console.log("paused " + id);
+              document.querySelector("#playpausebutton").src = "../files/play-256.png";
+              console.log("paused video");
           }
     }
 </script>
     
 <body>
-    <button
-        id="playpausebutton"
-        style="
-            position: absolute; 
-            right: 5px; 
-            bottom: 5px; 
-            padding: 10px 10px; 
-            background-color: #59BFFF; 
-            border: none;
-            border-radius: 50%;"
-        type="button"
-        onclick=playpause("alpha")
-    >
-        <img src="../files/white-play-256.png" height ="25px" width="25px" />
-    </button>
     <a-scene 
         vr-mode-ui="enabled: false;"
         loading-screen="enabled: true;"
@@ -80,5 +76,20 @@ permalink: /video/
         </a-marker>
         <a-entity camera></a-entity>
     </a-scene>
+        <button
+        id="playpausebutton"
+        style="
+            position: absolute; 
+            right: 5px; 
+            bottom: 5px; 
+            padding: 10px 10px; 
+            background-color: #59BFFF; 
+            border: none;
+            border-radius: 50%;"
+        type="button"
+        onclick=playpause()
+    >
+        <img src="../files/play-256.png" height ="25px" width="25px" />
+    </button>
   </body>
 </html> 
