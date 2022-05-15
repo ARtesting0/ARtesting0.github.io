@@ -8,7 +8,7 @@ permalink: /animation/
 <script src = "https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
 <script>
     AFRAME.registerComponent("markerhandler", {
-        init: function () {
+      init: function () {
             this.el.sceneEl.addEventListener("markerFound", () => {
                 // things to occur when marker is found
                 console.log("Marker detected");
@@ -20,10 +20,6 @@ permalink: /animation/
                 console.log("Marker gone");
                 var video = document.querySelector('#animation');
                 video.pause();
-                if (video.paused) {
-                    document.querySelector('#buttonimg').src = "../files/play-256.png";
-                    console.log("paused video");
-                }
             })
         }
     });
@@ -31,8 +27,13 @@ permalink: /animation/
 <script>
     function playing() {
         document.querySelector('#buttonimg').src = "../files/pause-256.png";
+        console.log("playing video");
     }
-    
+    function paused() {
+        document.querySelector('#buttonimg').src = "../files/play-256.png";
+        console.log("paused video");
+    }
+
     function playpause() {
         console.log("play pause");
         var video = document.querySelector('#animation');
@@ -40,10 +41,6 @@ permalink: /animation/
               video.play();
           } else {
               video.pause();
-              if (video.paused) {
-                  document.querySelector('#buttonimg').src = "../files/play-256.png";
-                  console.log("paused video");
-              }
           }
     }
 </script>
@@ -63,6 +60,7 @@ permalink: /animation/
                 loop="true" 
                 src="../files/Untitled_Artwork.mp4"
                 onplay="playing()"
+                onpause="paused()"
             >
             </video>
         </a-assets> 
