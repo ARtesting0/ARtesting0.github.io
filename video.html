@@ -14,7 +14,7 @@ permalink: /video/
                 console.log("Marker detected");
                 video.play();
                 if (!video.paused) {
-                    video.src = "../files/pause-256.png";
+                    document.querySelector('#buttonimg').src = "../files/pause-256.png";
                     console.log("playing video");
                 }
             })
@@ -23,7 +23,7 @@ permalink: /video/
                 console.log("Marker gone");
                 video.pause();
                 if (video.paused) {
-                    video.src = "../files/play-256.png";
+                    document.querySelector('#buttonimg').src = "../files/play-256.png";
                     console.log("paused video");
                 }
             })
@@ -89,7 +89,11 @@ permalink: /video/
         type="button"
         onclick=playpause()
     >
-        <img src="../files/play-256.png" height ="25px" width="25px" />
+        <img 
+             id="buttonimg"
+             src="../files/play-256.png" 
+             height ="25px" 
+             width="25px" />
     </button>
   </body>
 </html> 
