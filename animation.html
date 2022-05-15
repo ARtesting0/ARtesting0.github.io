@@ -14,10 +14,6 @@ permalink: /animation/
                 console.log("Marker detected");
                 var video = document.querySelector('#animation');
                 video.play();
-                if (video.onplaying) {
-                    document.querySelector('#buttonimg').src = "../files/pause-256.png";
-                    console.log("playing video");
-                }
             })
             this.el.sceneEl.addEventListener("markerLost", () => {
                 // things to occur when marker is found
@@ -33,15 +29,15 @@ permalink: /animation/
     });
 </script>
 <script>
+    function playing() {
+        document.querySelector('#buttonimg').src = "../files/pause-256.png";
+    }
+    
     function playpause() {
         console.log("play pause");
         var video = document.querySelector('#animation');
           if (video.paused) {
               video.play();
-              if (video.onplaying) {
-                  document.querySelector('#buttonimg').src = "../files/pause-256.png";
-                  console.log("playing video");
-              }
           } else {
               video.pause();
               if (video.paused) {
@@ -66,6 +62,7 @@ permalink: /animation/
                 playsinline
                 loop="true" 
                 src="../files/Untitled_Artwork.mp4"
+                onplay="playing()"
             >
             </video>
         </a-assets> 
