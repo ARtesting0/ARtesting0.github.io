@@ -9,10 +9,10 @@ permalink: /animation/
 <script>
     AFRAME.registerComponent("markerhandler", {
         init: function () {
-            var video = document.querySelector('#animation');
             this.el.sceneEl.addEventListener("markerFound", () => {
                 // things to occur when marker is found
                 console.log("Marker detected");
+                var video = document.querySelector('#animation');
                 video.play();
                 if (video.onplaying) {
                     document.querySelector('#buttonimg').src = "../files/pause-256.png";
@@ -22,6 +22,7 @@ permalink: /animation/
             this.el.sceneEl.addEventListener("markerLost", () => {
                 // things to occur when marker is found
                 console.log("Marker gone");
+                var video = document.querySelector('#animation');
                 video.pause();
                 if (video.paused) {
                     document.querySelector('#buttonimg').src = "../files/play-256.png";
