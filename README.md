@@ -3,7 +3,7 @@
 - ✅ Better homepage (for mobile)
 - ⬜ Start button? & start screen
 - ⬜ Overlaid marker status (detected / finding)
-- ⬜ Custom markers
+- ✅ Custom markers
 - ✅ FIX BUTTON
 - ⬜ FIX TRANSPARENCY
 
