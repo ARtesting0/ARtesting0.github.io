@@ -14,7 +14,7 @@ permalink: /animation/
                 // things to occur when marker is found
                 console.log("Marker detected");
                 video.play();
-                if (!video.paused) {
+                if (video.readyState >= 3 && !video.paused) {
                     document.querySelector('#buttonimg').src = "../files/pause-256.png";
                     console.log("playing video");
                 }
@@ -41,8 +41,10 @@ permalink: /animation/
               console.log("playing video");
           } else {
               video.pause();
+              if (video.readyState >= 3 && !video.paused) {
               document.querySelector('#buttonimg').src = "../files/play-256.png";
               console.log("paused video");
+              }
           }
     }
 </script>
