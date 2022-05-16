@@ -9,7 +9,7 @@ permalink: /animation/
 <script> <!--Remove loading screen when assets loaded-->
     AFRAME.registerComponent("whenassetsloaded", {
         init: function() {
-            this.el.addEventListener('model-loaded', () => {
+            this.el.addEventListener('loaded', () => {
                 var splash = document.querySelector('#splash');
                 splash.style.display = 'none';
             })
