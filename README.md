@@ -1,7 +1,7 @@
 - ✅ fix video AR
 - ✅ Fix detect when marker found/lost
 - ✅ Better homepage (for mobile)
-- ⬜ Overlaid marker status (detected / finding)
+- ✅ Overlaid marker status (detected / finding)
 - ✅ Custom markers
 - ✅ FIX BUTTON
 - ⬜ FIX video TRANSPARENCY
