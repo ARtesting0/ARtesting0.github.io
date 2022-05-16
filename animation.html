@@ -21,16 +21,22 @@ permalink: /animation/
             this.el.sceneEl.addEventListener("markerFound", () => {
                 // things to occur when marker is found
                 console.log("Marker detected");
-                var video = document.querySelector('#animation');
-                video.play();
+                document.querySelector('#animation').play;
                 document.querySelector('#playpausebutton').disabled = false;
+                document.querySelector('#markerimageref').style.display = 'none';
+                var sidetext = document.querySelector('#sidetext')
+                sidetext.innerHTML = "Marker found! 👍";
+                sidetext.style.color = '#017d05'
             })
             this.el.sceneEl.addEventListener("markerLost", () => {
-                // things to occur when marker is found
+                // things to occur when marker is lost
                 console.log("Marker gone");
-                var video = document.querySelector('#animation');
-                video.pause();
+                document.querySelector('#animation').pause;
                 document.querySelector('#playpausebutton').disabled = true;
+                document.querySelector('#markerimageref').style.display = 'true';
+                var sidetext = document.querySelector('#sidetext')
+                sidetext.innerHTML = "Find and scan me!";
+                sidetext.style.color = '#d90202'
             })
         }
     });
@@ -147,17 +153,27 @@ permalink: /animation/
              id="buttonimg"
              />
     </button>
+    <img 
+         id="markerimageref"
+         src="../files/SEAmarker.png" 
+         style="width: 100px; 
+                height: auto; 
+                position: absolute; 
+                left: 10px; 
+                bottom: 17px;"> 
+    </img>
     <p 
-        style="position: absolute; 
+       id="sidetext"
+       style="position: absolute; 
             left: 10px; 
             bottom: 5px; 
-            height: 110px;
+            height: 5px;
             font-family: Tahoma, sans-serif;
             font-size: 11px;
-            color: #000000"
+            color: #d90202"
     >
-        <img src="https://artesting0.github.io/files/SEAmarker.png" style="width: 100px; height: auto"> </img> <br>
-        <span style="background-color: #FFFFFF"><b>Find and scan me!<b></span>
+        
+        <span style="background-color: #FFFFFF"><b>Find and scan me!<b></span><br> 
     </p>
   </body>
 </html> 
