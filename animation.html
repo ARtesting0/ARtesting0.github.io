@@ -21,21 +21,21 @@ permalink: /animation/
             this.el.sceneEl.addEventListener("markerFound", () => {
                 // things to occur when marker is found
                 console.log("Marker detected");
-                document.querySelector('#animation').play;
+                document.querySelector('#animation').play();
                 document.querySelector('#playpausebutton').disabled = false;
                 document.querySelector('#markerimageref').style.display = 'none';
                 var sidetext = document.querySelector('#sidetext')
-                sidetext.innerHTML = "Marker found! 👍";
+                sidetext.innerHTML = sidetext.innerHTML.replace('Find and scan me!','Marker found! 👍');
                 sidetext.style.color = '#017d05'
             })
             this.el.sceneEl.addEventListener("markerLost", () => {
                 // things to occur when marker is lost
                 console.log("Marker gone");
-                document.querySelector('#animation').pause;
+                document.querySelector('#animation').pause();
                 document.querySelector('#playpausebutton').disabled = true;
                 document.querySelector('#markerimageref').style.display = 'true';
                 var sidetext = document.querySelector('#sidetext')
-                sidetext.innerHTML = "Find and scan me!";
+                sidetext.innerHTML = sidetext.innerHTML.replace('Marker found! 👍','Find and scan me!');
                 sidetext.style.color = '#d90202'
             })
         }
