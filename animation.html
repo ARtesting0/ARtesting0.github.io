@@ -37,15 +37,11 @@ permalink: /animation/
 </script>
 <script> <!--Changes button image when video playing/paused. Dynamic playpause button-->
     function videoplaying() {
-        var button = document.querySelector('#playpausebutton');
-        button.style.borderStyle="double"; 
-        button.style.borderWidth="0px 0 0px 60px";
+        document.querySelector('#buttonimg').src = "../files/pause-256.png";
         console.log("playing video");
     }
     function videopaused() {
-        var button = document.querySelector('#playpausebutton');
-        button.style.borderStyle="solid"; 
-        button.style.borderWidth="37px 0 37px 60px";
+        document.querySelector('#buttonimg').src = "../files/play-256.png";
         console.log("paused video");
     }
 
@@ -138,16 +134,18 @@ permalink: /animation/
             position: absolute; 
             right: 5px; 
             bottom: 5px; 
-            height: 74px;
-            border-color: transparent transparent transparent #202020;
-            transition: 100ms all ease;
-            will-change: border-width;
-            cursor: pointer;
-            border-style: solid;
-            border-width: 37px 0 37px 60px;
-            background-color: transparent"
-            onclick="playpause()"
+            padding: 10px 10px; 
+            background-color: #59BFFF; 
+            border: none;
+            border-radius: 50%;"
+        type="button"
+        onclick="playpause()"
     >
+        <img 
+             src="../files/play-256.png" 
+             style="width: 90%; height: auto; max-width: 5vmax"
+             id="buttonimg"
+             />
     </button>
     <p 
         style="position: absolute; 
