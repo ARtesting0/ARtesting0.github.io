@@ -25,11 +25,11 @@ permalink: /animation/
     });
 </script>
 <script>
-    function playing() {
+    function videoplaying() {
         document.querySelector('#buttonimg').src = "../files/pause-256.png";
         console.log("playing video");
     }
-    function paused() {
+    function videopaused() {
         document.querySelector('#buttonimg').src = "../files/play-256.png";
         console.log("paused video");
     }
@@ -59,8 +59,8 @@ permalink: /animation/
                 playsinline
                 loop="true" 
                 src="../files/Untitled_Artwork.mp4"
-                onplay="playing()"
-                onpause="paused()"
+                onplay="videoplaying()"
+                onpause="videopaused()"
             >
             </video>
         </a-assets> 
