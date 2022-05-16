@@ -7,6 +7,12 @@ permalink: /animation/
 <script src = "https://aframe.io/releases/1.0.4/aframe.min.js"></script>
 <script src = "https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
 <script>
+    window.onload = function () {
+        var splash = document.querySelector('#splash');
+        splash.style.display = 'none';
+    }
+</script>
+<script>
     AFRAME.registerComponent("markerhandler", {
       init: function () {
             this.el.sceneEl.addEventListener("markerFound", () => {
@@ -46,6 +52,41 @@ permalink: /animation/
 </script>
 
 <body>
+    <div 
+        id="splash"
+        style="position: fixed;
+               z-index: 99999;
+               display: flex;
+               align-items: center;
+               justify-content: center;
+               flex-direction: column;
+               top: 0;
+               bottom: 0;
+               left: 0;
+               right: 0;
+               margin: auto;
+               background-color: #000000;"
+               >
+        <div id="loading"
+             style="width: 24px;
+                    height: 24px;
+                    border-radius: 50%;
+                    border: 0.25rem solid rgba(255, 255, 255, 0.2);
+                    border-top-color: white;
+                    animation: spin 1s infinite linear;">
+            <style>
+                @keyframes spin {
+                    0% {
+                        transform: rotate(0deg);
+                    }
+                100% {
+                        transform: rotate(360deg);
+                    }
+                }
+            </style>
+        </div>
+    </div>
+    
     <a-scene 
         vr-mode-ui="enabled: false;"
         loading-screen="enabled: true;"
