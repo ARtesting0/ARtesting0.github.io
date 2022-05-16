@@ -6,13 +6,13 @@ permalink: /animation/
 
 <script src = "https://aframe.io/releases/1.0.4/aframe.min.js"></script>
 <script src = "https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
-<script>
+<script> <!--Remove loading screen when window (everything) loaded-->
     window.onload = function () {
         var splash = document.querySelector('#splash');
         splash.style.display = 'none';
     }
 </script>
-<script>
+<script> <!--Detects when marker is found or lost. Currently plays/pauses video accordingly. markerhandler to be put in a-marker.-->
     AFRAME.registerComponent("markerhandler", {
       init: function () {
             this.el.sceneEl.addEventListener("markerFound", () => {
@@ -30,7 +30,7 @@ permalink: /animation/
         }
     });
 </script>
-<script>
+<script> <!--Changes button image when video playing/paused. Dynamic playpause button-->
     function videoplaying() {
         document.querySelector('#buttonimg').src = "../files/pause-256.png";
         console.log("playing video");
