@@ -20,10 +20,9 @@ permalink: /animationqr/
             this.el.sceneEl.addEventListener("markerFound", function () {
                 // things to occur when marker is found
                 console.log("Marker detected");
-                document.querySelector('#animation').play();
-                document.querySelector('#playpausebutton').disabled = false;
-                document.querySelector('#markerimageref').style.display = 'none';
-                var sidetext = document.querySelector('#sidetext')
+                animation.play();
+                playpausebutton.disabled = false;
+                markerimageref.style.display = 'none';
                 sidetext.innerHTML = sidetext.innerHTML.replace('Find and scan me!','Marker found! 👍');
                 sidetext.style.color = '#017d05'
             })
@@ -33,7 +32,6 @@ permalink: /animationqr/
                 document.querySelector('#animation').pause();
                 document.querySelector('#playpausebutton').disabled = true;
                 document.querySelector('#markerimageref').style.display = 'inline';
-                var sidetext = document.querySelector('#sidetext')
                 sidetext.innerHTML = sidetext.innerHTML.replace('Marker found! 👍','Find and scan me!');
                 sidetext.style.color = '#d90202'
             })
@@ -42,21 +40,20 @@ permalink: /animationqr/
 </script>
 <script> <!--Changes button image when video playing/paused. Dynamic playpause button-->
     function videoplaying() {
-        document.querySelector('#buttonimg').src = "../files/pause-256.png";
+        buttonimg.src = "../files/pause-256.png";
         console.log("playing video");
     }
     function videopaused() {
-        document.querySelector('#buttonimg').src = "../files/play-256.png";
+        buttonimg.src = "../files/play-256.png";
         console.log("paused video");
     }
 
     function playpause() {
         console.log("play pause");
-        var video = document.querySelector('#animation');
-          if (video.paused) {
-              video.play();
+          if (animation.paused) {
+              animation.play();
           } else {
-              video.pause();
+              animation.pause();
           }
     }
 </script>
