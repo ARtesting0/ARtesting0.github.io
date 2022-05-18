@@ -147,34 +147,30 @@ permalink: /animationqr/
         type="button"
         onclick="playpause()"
     >
-        <img 
-             src="../files/play-256.png" 
-             style="width: 90%; height: auto; max-width: 5vmax"
-             id="buttonimg"
-             />
-    </button>
-    <img 
-         id="markerimageref"
-         src="../files/pattern-qr-code-animationqr.png" 
-         style="width: 35vmin; 
+    <div style="width: 35vmin; 
                 height: auto; 
                 position: absolute; 
                 left: 10px; 
-                bottom: 17px;"> 
-    </img>
-    <p 
-       id="sidetext"
-       style="position: absolute; 
-            left: 10px; 
-            bottom: 5px; 
-            height: 5px;
-            font-family: Tahoma, sans-serif;
-            font-size: 3.5vmin;
-            color: #d90202;
-            text-align: center;"
-    >
-        
+                bottom: 0px;">
+        <img 
+            id="markerimageref"
+            src="../files/pattern-qr-code-animationqr.png" 
+            style="width: 35vmin; 
+                   height: auto;
+                   postition: relative;
+                   margin-bottom: -4.5vmin"
+        >
+        </img>
+        <p
+            id="sidetext"
+            style="position: relative; 
+                   font-family: Tahoma, sans-serif;
+                   font-size: 3.855vmin;
+                   color: #d90202;
+                   text-align: center;"
+        >
         <span style="background-color: #FFFFFF"><b>Find and scan me!<b></span><br> 
-    </p>
+        </p>
+    </div>
   </body>
 </html> 
