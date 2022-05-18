@@ -137,7 +137,7 @@ permalink: /animationqr/
         disabled
         id="playpausebutton"
         style="
-            position: absolute; 
+            position: fixed; 
             right: 5px; 
             bottom: 5px; 
             padding: 10px 10px; 
@@ -147,9 +147,15 @@ permalink: /animationqr/
         type="button"
         onclick="playpause()"
     >
+        <img 
+             src="../files/play-256.png" 
+             style="width: 90%; height: auto; max-width: 5vmax"
+             id="buttonimg"
+             />
+    </button>
     <div style="width: 35vmin; 
                 height: auto; 
-                position: absolute; 
+                position: fixed; 
                 left: 10px; 
                 bottom: 0px;">
         <img 
