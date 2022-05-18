@@ -26,6 +26,7 @@ permalink: /animationqr/
                 var sidetext = document.querySelector('#sidetext')
                 sidetext.innerHTML = sidetext.innerHTML.replace('Find and scan me!','Marker found! 👍');
                 sidetext.style.color = '#017d05'
+                hellotxt.style.display = 'inline';
             })
             this.el.sceneEl.addEventListener("markerLost", function () {
                 // things to occur when marker is lost
@@ -178,5 +179,6 @@ permalink: /animationqr/
         <span style="background-color: #FFFFFF"><b>Find and scan me!<b></span><br> 
         </p>
     </div>
+    <img id="hellotxt" src="https://artesting0.github.io/files/hellotxt.png" style="display: none"> </img>
   </body>
 </html> 
