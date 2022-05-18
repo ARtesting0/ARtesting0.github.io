@@ -8,7 +8,8 @@ permalink: /animationqr/
 <script src = "https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
 <script> <!--Remove loading screen when page & camera loaded-->
     window.onpageshow = function() {
-        window.addEventListener('camera-init', function () {
+        window.addEventListener('arjs-video-loaded', function () {
+            console.log("arjs-video-loaded");
             splash.style.display = 'none';
         }
     }
