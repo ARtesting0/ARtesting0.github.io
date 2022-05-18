@@ -6,9 +6,11 @@ permalink: /animationqr/
 
 <script src = "https://aframe.io/releases/1.0.4/aframe.min.js"></script>
 <script src = "https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
-<script> <!--Remove loading screen when page loaded-->
+<script> <!--Remove loading screen when page & camera loaded-->
     window.onpageshow = function() {
-        splash.style.display = 'none';
+        window.addEventListener('camera-init', function () {
+            splash.style.display = 'none';
+        }
     }
 </script>
 <script> <!--Detects when marker is found or lost. Currently plays/pauses video accordingly. markerhandler to be put in a-marker.-->
