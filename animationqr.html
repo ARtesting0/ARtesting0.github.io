@@ -16,7 +16,7 @@ permalink: /animationqr/
 <script> <!--Detects when marker is found or lost. Currently plays/pauses video accordingly. markerhandler to be put in a-marker.-->
     AFRAME.registerComponent("markerhandler", {
       init: function () {
-            this.el.sceneEl.addEventListener("markerFound", () => {
+            this.el.sceneEl.addEventListener("markerFound", function () {
                 // things to occur when marker is found
                 console.log("Marker detected");
                 document.querySelector('#animation').play();
@@ -26,7 +26,7 @@ permalink: /animationqr/
                 sidetext.innerHTML = sidetext.innerHTML.replace('Find and scan me!','Marker found! 👍');
                 sidetext.style.color = '#017d05'
             })
-            this.el.sceneEl.addEventListener("markerLost", () => {
+            this.el.sceneEl.addEventListener("markerLost", function () {
                 // things to occur when marker is lost
                 console.log("Marker gone");
                 document.querySelector('#animation').pause();
