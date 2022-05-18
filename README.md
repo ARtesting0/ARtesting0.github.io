@@ -4,8 +4,7 @@
 - ✅ Overlaid marker status (detected / finding)
 - ✅ Custom markers
 - ✅ FIX BUTTON
-- ⬜ FIX video TRANSPARENCY
-- ⬜ alternative for custom marker with qr code to website
+- ✅ alternative for custom marker with qr code to website
 
 
 [![](files/frame.png)](https://artesting0.github.io)
