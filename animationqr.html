@@ -111,6 +111,15 @@ permalink: /animationqr/
                 onpause="videopaused()"
             >
                 <source src="../files/mantaray-YT.mp4" type="video/mp4">
+            <video 
+                id="animation2"
+                playsinline
+                preload="auto"
+                loop="true" 
+                onplay="videoplaying()"
+                onpause="videopaused()"
+            >
+                <source src="../files/Untitled_Artwork-compressed-YT.mp4" type="video/mp4">
             </video>
         </a-assets> 
         <a-marker 
@@ -125,6 +134,21 @@ permalink: /animationqr/
                 rotation="270 0 0"
                 position="0 0 0"
                 src="#animation"
+            >
+            </a-video>
+        </a-marker>
+        <a-marker 
+            type="pattern"
+            url="../files/SEAmarker.patt"
+            emitevents="true"
+            markerhandler
+            smoothCount=0 
+            smoothTolerance=0.0001
+        >
+            <a-video  
+                rotation="270 0 0"
+                position="0 0 0"
+                src="#animation2"
             >
             </a-video>
         </a-marker>
