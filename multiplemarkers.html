@@ -26,7 +26,7 @@ permalink: /multiplemarkers/
                 
                 // if markerID is this... plays the video of the marker's
                 if (markerID = "pattern-qr-code-animationqr") {
-                    manta-ray-animation.play();
+                    mantarayanimation.play();
                 }
                 
                 playpausebutton.disabled = false;
@@ -43,7 +43,7 @@ permalink: /multiplemarkers/
                 
                 // if markerID is this... pauses the video of the marker's
                 if (markerID = "pattern-qr-code-animationqr") {
-                    manta-ray-animation.pause();
+                    mantarayanimation.pause();
                 }
                 
                 playpausebutton.disabled = true;
@@ -67,10 +67,10 @@ permalink: /multiplemarkers/
 
     function playpause() {
         console.log("play pause:");
-          if (manta-ray-animation.paused) {
-              manta-ray-animation.play();
+          if (mantarayanimation.paused) {
+              mantarayanimation.play();
           } else {
-              manta-ray-animation.pause();
+              mantarayanimation.pause();
           }
     }
 </script>
@@ -120,12 +120,12 @@ permalink: /multiplemarkers/
     >
         <a-assets>
             <video 
-                id = "manta-ray-animation"
+                id = "mantarayanimation"
                 playsinline
                 preload = "auto"
                 loop="true" 
-                onplay="videoplaying('manta-ray-animation')"
-                onpause="videopaused('manta-ray-animation')"
+                onplay="videoplaying('mantarayanimation')"
+                onpause="videopaused('mantarayanimation')"
             >
                 <source src="../files/mantaray-YT.mp4" type="video/mp4">
             </video>
@@ -142,7 +142,7 @@ permalink: /multiplemarkers/
             <a-video  
                 rotation = "270 0 0"
                 position = "0 0 0"
-                src = "#manta-ray-animation"
+                src = "#mantarayanimation"
             >
             </a-video>
         </a-marker>
