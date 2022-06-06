@@ -111,29 +111,8 @@ permalink: /animationqr/
                 onpause="videopaused()"
             >
                 <source src="../files/mantaray-YT.mp4" type="video/mp4">
-            <video 
-                id="animation2"
-                playsinline
-                preload="auto"
-                loop="true" 
-                onplay="videoplaying()"
-                onpause="videopaused()"
-            >
-                <source src="../files/Untitled_Artwork-compressed-YT.mp4" type="video/mp4">
             </video>
         </a-assets> 
-        <a-marker 
-            preset='hiro'
-            emitevents="true"
-            markerhandler
-        >
-            <a-video  
-                rotation="270 0 0"
-                position="0 0 0"
-                src="#animation2"
-            >
-            </a-video>
-        </a-marker>
         <a-marker 
             type="pattern"
             url="../files/pattern-qr-code-animationqr.patt"
@@ -149,7 +128,6 @@ permalink: /animationqr/
             >
             </a-video>
         </a-marker>
-        
         <a-entity camera></a-entity>
     </a-scene>
     <button
