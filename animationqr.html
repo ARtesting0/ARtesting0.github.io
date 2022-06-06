@@ -123,6 +123,20 @@ permalink: /animationqr/
             </video>
         </a-assets> 
         <a-marker 
+            preset='hiro'
+            emitevents="true"
+            markerhandler
+            smoothCount=0 
+            smoothTolerance=0.0001
+        >
+            <a-video  
+                rotation="270 0 0"
+                position="0 0 0"
+                src="#animation2"
+            >
+            </a-video>
+        </a-marker>
+        <a-marker 
             type="pattern"
             url="../files/pattern-qr-code-animationqr.patt"
             emitevents="true"
@@ -137,20 +151,7 @@ permalink: /animationqr/
             >
             </a-video>
         </a-marker>
-        <a-marker 
-            preset='hiro'
-            emitevents="true"
-            markerhandler
-            smoothCount=0 
-            smoothTolerance=0.0001
-        >
-            <a-video  
-                rotation="270 0 0"
-                position="0 0 0"
-                src="#animation2"
-            >
-            </a-video>
-        </a-marker>
+        
         <a-entity camera></a-entity>
     </a-scene>
     <button
