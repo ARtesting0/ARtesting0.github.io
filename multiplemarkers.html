@@ -17,7 +17,8 @@ permalink: /multiplemarkers/
 <script> <!--Detects when marker is found or lost. Currently plays/pauses video accordingly. markerhandler to be put in a-marker.-->
     AFRAME.registerComponent("markerhandler", {
       init: function () {
-            this.el.sceneEl.addEventListener("markerFound", function () {
+            const marker = this.el;
+            marker.sceneEl.addEventListener("markerFound", function () {
                 
                 // things to occur when marker is found
                 var markerID = marker.id;
@@ -34,7 +35,7 @@ permalink: /multiplemarkers/
                 sidetext.style.color = '#017d05'
                 
             })
-            this.el.sceneEl.addEventListener("markerLost", function () {
+            marker.sceneEl.addEventListener("markerLost", function () {
                 
                 // things to occur when marker is lost
                 var markerID = marker.id;
