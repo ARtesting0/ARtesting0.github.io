@@ -1,0 +1,179 @@
+---
+permalink: /animationqr/
+---
+<!doctype html>
+<html>
+
+<script src = "https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+<script src = "https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+<script> <!--Remove loading screen when page & camera loaded-->
+    window.onpageshow = function() {
+        window.addEventListener('arjs-video-loaded', function () {
+            console.log("arjs-video-loaded");
+            splash.style.display = 'none';
+        })
+    }
+</script>
+<script> <!--Detects when marker is found or lost. Currently plays/pauses video accordingly. markerhandler to be put in a-marker.-->
+    AFRAME.registerComponent("markerhandler", {
+      init: function () {
+            this.el.sceneEl.addEventListener("markerFound", function () {
+                // things to occur when marker is found
+                console.log("Marker detected");
+                animation.play();
+                playpausebutton.disabled = false;
+                markerimageref.style.display = 'none';
+                sidetext.innerHTML = sidetext.innerHTML.replace('Find and scan me!','Marker found! 👍');
+                sidetext.style.color = '#017d05'
+            })
+            this.el.sceneEl.addEventListener("markerLost", function () {
+                // things to occur when marker is lost
+                console.log("Marker gone");
+                document.querySelector('#animation').pause();
+                document.querySelector('#playpausebutton').disabled = true;
+                document.querySelector('#markerimageref').style.display = 'inline';
+                sidetext.innerHTML = sidetext.innerHTML.replace('Marker found! 👍','Find and scan me!');
+                sidetext.style.color = '#d90202'
+            })
+        }
+    });
+</script>
+<script> <!--Changes button image when video playing/paused. Dynamic playpause button-->
+    function videoplaying() {
+        buttonimg.src = "../files/pause-256.png";
+        console.log("playing video");
+    }
+    function videopaused() {
+        buttonimg.src = "../files/play-256.png";
+        console.log("paused video");
+    }
+
+    function playpause() {
+        console.log("play pause");
+          if (animation.paused) {
+              animation.play();
+          } else {
+              animation.pause();
+          }
+    }
+</script>
+
+<body style = "overflow: hidden">
+    <div 
+        id="splash"
+        style="position: fixed;
+               z-index: 99999;
+               display: flex;
+               align-items: center;
+               justify-content: center;
+               flex-direction: column;
+               top: 0;
+               bottom: 0;
+               left: 0;
+               right: 0;
+               margin: auto;
+               background-color: #000000;"
+               >
+        <div id="loading"
+             style="width: 24px;
+                    height: 24px;
+                    border-radius: 50%;
+                    border: 0.25rem solid rgba(255, 255, 255, 0.2);
+                    border-top-color: white;
+                    animation: spin 1s infinite linear;">
+            <style>
+                @keyframes spin {
+                    0% {
+                        transform: rotate(0deg);
+                    }
+                100% {
+                        transform: rotate(360deg);
+                    }
+                }
+            </style>
+        </div>
+    </div>
+    
+    <a-scene 
+        vr-mode-ui="enabled: false;"
+        loading-screen="enabled: true;"
+        arjs="trackingMethod: best; sourceType: webcam; patternRatio: 0.9; debugUIEnabled: false; detectionMode: mono"
+        id="scene"
+        embedded
+    >
+        <a-assets>
+            <video 
+                id="animation"
+                playsinline
+                preload="auto"
+                loop="true" 
+                onplay="videoplaying()"
+                onpause="videopaused()"
+            >
+                <source src="../files/mantaray-YT.mp4" type="video/mp4">
+            </video>
+        </a-assets> 
+        <a-marker 
+            type="pattern"
+            url="../files/pattern-qr-code-animationqr.patt"
+            emitevents="true"
+            markerhandler
+            smoothCount=0 
+            smoothTolerance=0.0001
+        >
+            <a-video  
+                rotation="270 0 0"
+                position="0 0 0"
+                src="#animation"
+            >
+            </a-video>
+        </a-marker>
+        <a-entity camera></a-entity>
+    </a-scene>
+    <button
+        disabled
+        id="playpausebutton"
+        style="
+            position: fixed; 
+            right: 5px; 
+            bottom: 5px; 
+            padding: 10px 10px; 
+            background-color: #ff0015; 
+            border: none;
+            border-radius: 50%;"
+        type="button"
+        onclick="playpause()"
+    >
+        <img 
+             src="../files/play-256.png" 
+             style="width: 90%; height: auto; max-width: 5vmax"
+             id="buttonimg"
+             />
+    </button>
+    <div style="width: 35vmin; 
+                height: auto; 
+                position: fixed; 
+                left: 10px; 
+                bottom: 0px;">
+        <img 
+            id="markerimageref"
+            src="../files/pattern-qr-code-animationqr.png" 
+            style="width: 35vmin; 
+                   height: auto;
+                   postition: relative;
+                   margin-bottom: -4.5vmin"
+        >
+        </img>
+        <p
+            id="sidetext"
+            style="position: relative; 
+                   font-family: Tahoma, sans-serif;
+                   font-size: 3.855vmin;
+                   color: #d90202;
+                   text-align: center;"
+        >
+        <span style="background-color: #FFFFFF"><b>Find and scan me!<b></span><br> 
+        </p>
+    </div>
+  </body>
+</html>
