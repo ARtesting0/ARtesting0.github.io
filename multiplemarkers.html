@@ -18,40 +18,54 @@ permalink: /multiplemarkers/
     AFRAME.registerComponent("markerhandler", {
       init: function () {
             this.el.sceneEl.addEventListener("markerFound", function () {
+                
                 // things to occur when marker is found
-                var markerId = marker.id;
-                console.log('Marker Detected: ', markerId);
-                manta-ray-animation.play();
+                var markerID = marker.id;
+                console.log('Marker Detected: ', markerID);
+                
+                // if markerID is this... plays the video of the marker's
+                if (markerID = "pattern-qr-code-animationqr") {
+                    manta-ray-animation.play();
+                }
+                
                 playpausebutton.disabled = false;
                 markerimageref.style.display = 'none';
                 sidetext.innerHTML = sidetext.innerHTML.replace('Find and scan me!','Marker found! 👍');
                 sidetext.style.color = '#017d05'
+                
             })
             this.el.sceneEl.addEventListener("markerLost", function () {
+                
                 // things to occur when marker is lost
-                var markerId = marker.id;
-                console.log('Marker Lost: ', markerId);
-                manta-ray-animation.pause();
+                var markerID = marker.id;
+                console.log('Marker Lost: ', markerID);
+                
+                // if markerID is this... pauses the video of the marker's
+                if (markerID = "pattern-qr-code-animationqr") {
+                    manta-ray-animation.pause();
+                }
+                
                 playpausebutton.disabled = true;
                 markerimageref.style.display = 'inline';
                 sidetext.innerHTML = sidetext.innerHTML.replace('Marker found! 👍','Find and scan me!');
                 sidetext.style.color = '#d90202'
+                
             })
         }
     });
 </script>
 <script> <!--Changes button image when video playing/paused. Dynamic playpause button-->
-    function videoplaying() {
+    function videoplaying(videoID) {
         buttonimg.src = "../files/pause-256.png";
-        console.log("playing video");
+        console.log("playing video: ", videoID);
     }
-    function videopaused() {
+    function videopaused(videoID) {
         buttonimg.src = "../files/play-256.png";
-        console.log("paused video");
+        console.log("paused video: ", videoID);
     }
 
     function playpause() {
-        console.log("play pause");
+        console.log("play pause:");
           if (manta-ray-animation.paused) {
               manta-ray-animation.play();
           } else {
@@ -109,8 +123,8 @@ permalink: /multiplemarkers/
                 playsinline
                 preload = "auto"
                 loop="true" 
-                onplay="videoplaying()"
-                onpause="videopaused()"
+                onplay="videoplaying('manta-ray-animation')"
+                onpause="videopaused('manta-ray-animation')"
             >
                 <source src="../files/mantaray-YT.mp4" type="video/mp4">
             </video>
