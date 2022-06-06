@@ -1,5 +1,5 @@
 ---
-permalink: /animationqr/
+permalink: /multiplemarkers/
 ---
 <!doctype html>
 <html>
@@ -19,8 +19,9 @@ permalink: /animationqr/
       init: function () {
             this.el.sceneEl.addEventListener("markerFound", function () {
                 // things to occur when marker is found
-                console.log("Marker detected");
-                animation.play();
+                var markerId = marker.id;
+                console.log('Marker Detected: ', markerId);
+                manta-ray-animation.play();
                 playpausebutton.disabled = false;
                 markerimageref.style.display = 'none';
                 sidetext.innerHTML = sidetext.innerHTML.replace('Find and scan me!','Marker found! 👍');
@@ -28,10 +29,11 @@ permalink: /animationqr/
             })
             this.el.sceneEl.addEventListener("markerLost", function () {
                 // things to occur when marker is lost
-                console.log("Marker gone");
-                document.querySelector('#animation').pause();
-                document.querySelector('#playpausebutton').disabled = true;
-                document.querySelector('#markerimageref').style.display = 'inline';
+                var markerId = marker.id;
+                console.log('Marker Lost: ', markerId);
+                manta-ray-animation.pause();
+                playpausebutton.disabled = true;
+                markerimageref.style.display = 'inline';
                 sidetext.innerHTML = sidetext.innerHTML.replace('Marker found! 👍','Find and scan me!');
                 sidetext.style.color = '#d90202'
             })
@@ -50,18 +52,18 @@ permalink: /animationqr/
 
     function playpause() {
         console.log("play pause");
-          if (animation.paused) {
-              animation.play();
+          if (manta-ray-animation.paused) {
+              manta-ray-animation.play();
           } else {
-              animation.pause();
+              manta-ray-animation.pause();
           }
     }
 </script>
 
 <body style = "overflow: hidden">
     <div 
-        id="splash"
-        style="position: fixed;
+        id = "splash"
+        style = "position: fixed;
                z-index: 99999;
                display: flex;
                align-items: center;
@@ -74,13 +76,13 @@ permalink: /animationqr/
                margin: auto;
                background-color: #000000;"
                >
-        <div id="loading"
-             style="width: 24px;
-                    height: 24px;
-                    border-radius: 50%;
-                    border: 0.25rem solid rgba(255, 255, 255, 0.2);
-                    border-top-color: white;
-                    animation: spin 1s infinite linear;">
+        <div id = "loading"
+             style = "width: 24px;
+                      height: 24px;
+                      border-radius: 50%;
+                      border: 0.25rem solid rgba(255, 255, 255, 0.2);
+                      border-top-color: white;
+                      animation: spin 1s infinite linear;">
             <style>
                 @keyframes spin {
                     0% {
@@ -95,17 +97,17 @@ permalink: /animationqr/
     </div>
     
     <a-scene 
-        vr-mode-ui="enabled: false;"
-        loading-screen="enabled: true;"
-        arjs="trackingMethod: best; sourceType: webcam; patternRatio: 0.9; debugUIEnabled: false; detectionMode: mono"
-        id="scene"
+        vr-mode-ui = "enabled: false;"
+        loading-screen = "enabled: true;"
+        arjs = "trackingMethod: best; sourceType: webcam; patternRatio: 0.9; debugUIEnabled: false; detectionMode: mono"
+        id = "scene"
         embedded
     >
         <a-assets>
             <video 
-                id="animation"
+                id = "manta-ray-animation"
                 playsinline
-                preload="auto"
+                preload = "auto"
                 loop="true" 
                 onplay="videoplaying()"
                 onpause="videopaused()"
@@ -114,17 +116,18 @@ permalink: /animationqr/
             </video>
         </a-assets> 
         <a-marker 
-            type="pattern"
-            url="../files/pattern-qr-code-animationqr.patt"
-            emitevents="true"
+            type = "pattern"
+            url = "../files/pattern-qr-code-animationqr.patt"
+            id = "pattern-qr-code-animationqr"
+            emitevents = "true"
             markerhandler
-            smoothCount=0 
-            smoothTolerance=0.0001
+            smoothCount = 0 
+            smoothTolerance = 0.0001
         >
             <a-video  
-                rotation="270 0 0"
-                position="0 0 0"
-                src="#animation"
+                rotation = "270 0 0"
+                position = "0 0 0"
+                src = "#manta-ray-animation"
             >
             </a-video>
         </a-marker>
@@ -132,47 +135,46 @@ permalink: /animationqr/
     </a-scene>
     <button
         disabled
-        id="playpausebutton"
-        style="
-            position: fixed; 
-            right: 5px; 
-            bottom: 5px; 
-            padding: 10px 10px; 
-            background-color: #ff0015; 
-            border: none;
-            border-radius: 50%;"
-        type="button"
-        onclick="playpause()"
+        id = "playpausebutton"
+        style = "position: fixed; 
+                 right: 5px; 
+                 bottom: 5px; 
+                 padding: 10px 10px; 
+                 background-color: #ff0015; 
+                 border: none;
+                 border-radius: 50%;"
+        type = "button"
+        onclick = "playpause()"
     >
         <img 
-             src="../files/play-256.png" 
-             style="width: 90%; height: auto; max-width: 5vmax"
-             id="buttonimg"
+             src = "../files/play-256.png" 
+             style = "width: 90%; height: auto; max-width: 5vmax"
+             id = "buttonimg"
              />
     </button>
-    <div style="width: 35vmin; 
-                height: auto; 
-                position: fixed; 
-                left: 10px; 
-                bottom: 0px;">
+    <div style = "width: 35vmin; 
+                  height: auto; 
+                  position: fixed; 
+                  left: 10px; 
+                  bottom: 0px;">
         <img 
-            id="markerimageref"
-            src="../files/pattern-qr-code-animationqr.png" 
-            style="width: 35vmin; 
-                   height: auto;
-                   postition: relative;
-                   margin-bottom: -4.5vmin"
+            id = "markerimageref"
+            src = "../files/pattern-qr-code-animationqr.png" 
+            style = "width: 35vmin; 
+                     height: auto;
+                     postition: relative;
+                     margin-bottom: -4.5vmin"
         >
         </img>
         <p
-            id="sidetext"
-            style="position: relative; 
-                   font-family: Tahoma, sans-serif;
-                   font-size: 3.855vmin;
-                   color: #d90202;
-                   text-align: center;"
+            id = "sidetext"
+            style = "position: relative; 
+                     font-family: Tahoma, sans-serif;
+                     font-size: 3.855vmin;
+                     color: #d90202;
+                     text-align: center;"
         >
-        <span style="background-color: #FFFFFF"><b>Find and scan me!<b></span><br> 
+        <span style = "background-color: #FFFFFF"><b>Find and scan me!<b></span><br> 
         </p>
     </div>
   </body>
