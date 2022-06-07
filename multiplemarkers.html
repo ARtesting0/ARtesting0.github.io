@@ -15,6 +15,7 @@ permalink: /multiplemarkers/
     }
 </script>
 <script> <!--Detects when marker is found or lost. Currently plays/pauses video accordingly. markerhandler to be put in a-marker.-->
+    var currentMarker = 'null';
     AFRAME.registerComponent("markerhandler", {
       init: function () {
             const marker = this.el;
@@ -23,6 +24,8 @@ permalink: /multiplemarkers/
                 // things to occur when marker is found
                 var markerID = marker.id;
                 console.log('Marker Detected: ', markerID);
+                currentMarker = markerID;
+                console.log('currentMarker: ', currentMarker);
                 
                 // if markerID is this... plays the video of the marker's
                 if (markerID = "pattern-qr-code-animationqr") {
@@ -40,6 +43,8 @@ permalink: /multiplemarkers/
                 // things to occur when marker is lost
                 var markerID = marker.id;
                 console.log('Marker Lost: ', markerID);
+                currentMarker = 'null';
+                console.log('currentMarker: ', currentMarker);
                 
                 // if markerID is this... pauses the video of the marker's
                 if (markerID = "pattern-qr-code-animationqr") {
@@ -66,12 +71,16 @@ permalink: /multiplemarkers/
     }
 
     function playpause() {
-        console.log("play pause:");
-          if (mantarayanimation.paused) {
-              mantarayanimation.play();
-          } else {
-              mantarayanimation.pause();
-          }
+        console.log("play pause: ", currentMarker);
+        
+        // if currentmarker is this... play its video
+        if (currentMarker = "pattern-qr-code-animationqr") { 
+              if (mantarayanimation.paused) {
+                  mantarayanimation.play();
+              } else {
+                  mantarayanimation.pause();
+              }
+        }
     }
 </script>
 
