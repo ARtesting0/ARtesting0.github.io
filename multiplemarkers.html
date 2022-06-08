@@ -20,6 +20,7 @@ permalink: /multiplemarkers/
       init: function () {
             const marker = this.el;
             marker.sceneEl.addEventListener("markerFound", function () {
+                const marker = this.el;
                 
                 // things to occur when marker is found
                 var markerID = marker.id;
@@ -31,6 +32,9 @@ permalink: /multiplemarkers/
                 if (markerID = "pattern-qr-code-animationqr") {
                     mantarayanimation.play();
                 }
+                else if (markerID = "hiro") {
+                    zebrasharkanimation.play();
+                }
                 
                 playpausebutton.disabled = false;
                 markerimageref.style.display = 'none';
@@ -39,6 +43,7 @@ permalink: /multiplemarkers/
                 
             })
             marker.sceneEl.addEventListener("markerLost", function () {
+                const marker = this.el;
                 
                 // things to occur when marker is lost
                 var markerID = marker.id;
@@ -49,6 +54,9 @@ permalink: /multiplemarkers/
                 // if markerID is this... pauses the video of the marker's
                 if (markerID = "pattern-qr-code-animationqr") {
                     mantarayanimation.pause();
+                }
+                else if (markerID = "hiro") {
+                    zebrasharkanimation.pause();
                 }
                 
                 playpausebutton.disabled = true;
@@ -79,6 +87,13 @@ permalink: /multiplemarkers/
                   mantarayanimation.play();
               } else {
                   mantarayanimation.pause();
+              }
+        }
+        else if (currentMarker = "hiro") { 
+              if (zebrasharkanimation.paused) {
+                  zebrasharkanimation.play();
+              } else {
+                  zebrasharkanimation.pause();
               }
         }
     }
@@ -138,7 +153,20 @@ permalink: /multiplemarkers/
             >
                 <source src="../files/mantaray-YT.mp4" type="video/mp4">
             </video>
+            
+            <video 
+                id = "zebrasharkanimation"
+                playsinline
+                preload = "auto"
+                loop="true" 
+                onplay="videoplaying('zebrasharkanimation')"
+                onpause="videopaused('zebrasharkanimation')"
+            >
+                <source src="../files/Untitled_Artwork-compressed-YT.mp4" type="video/mp4">
+            </video>
+            
         </a-assets> 
+        
         <a-marker 
             type = "pattern"
             url = "../files/pattern-qr-code-animationqr.patt"
@@ -155,17 +183,21 @@ permalink: /multiplemarkers/
             >
             </a-video>
         </a-marker>
+        
         <a-marker
             markerhandler
+            id = "hiro"
             preset='hiro'
             emitevents='true'
         >
-            <a-image 
-                rotation="0 0 0"
-                position="0 0.5 0"
-                src="../files/babyshark.jpg">
-            </a-image>
+            <a-video  
+                rotation = "270 0 0"
+                position = "0 0 0"
+                src = "#zebrasharkanimation"
+            >
+            </a-video>
         </a-marker>
+        
         <a-entity camera></a-entity>
     </a-scene>
     <button
