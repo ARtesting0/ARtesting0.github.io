@@ -5,7 +5,7 @@ permalink: /multiplemarkers/
 <html>
 
 <script src = "https://aframe.io/releases/1.0.4/aframe.min.js"></script>
-<script src = "../js/aframe-ar.js"></script>
+<script src = "https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
 <script> <!--Remove loading screen when page & camera loaded-->
     window.onpageshow = function() {
         window.addEventListener('arjs-video-loaded', function () {
@@ -28,7 +28,7 @@ permalink: /multiplemarkers/
               console.log('currentMarker: ', currentMarker);
               
               // if markerID is this... plays the video of the marker's
-              if (markerID = "pattern-qr-code-animationqr") {
+              if (markerID = "SEAmarker") {
                   mantarayanimation.play();
               } else if (markerID = "hiro") {
                   zebrasharkanimation.play();
@@ -51,7 +51,7 @@ permalink: /multiplemarkers/
               console.log('currentMarker: ', currentMarker);
               
               // if markerID is this... pauses the video of the marker's
-              if (markerID = "pattern-qr-code-animationqr") {
+              if (markerID = "SEAmarker") {
                   mantarayanimation.pause();
               } else if (markerID = "hiro") {
                   zebrasharkanimation.pause();
@@ -82,7 +82,7 @@ permalink: /multiplemarkers/
         console.log("play pause: ", currentMarker);
         
         // if currentmarker is this... play its video
-        if (currentMarker = "pattern-qr-code-animationqr") { 
+        if (currentMarker = "SEAmarker") { 
               if (mantarayanimation.paused) {
                   mantarayanimation.play();
               } else {
@@ -158,7 +158,7 @@ permalink: /multiplemarkers/
     <a-scene 
         vr-mode-ui = "enabled: false;"
         loading-screen = "enabled: true;"
-        arjs = "trackingMethod: best; sourceType: webcam; debugUIEnabled: false; detectionMode: mono"
+        arjs = "trackingMethod: best; sourceType: webcam; debugUIEnabled: false; detectionMode: mono; patternRatio: 0.5;"
         id = "scene"
         embedded
     >
@@ -189,9 +189,8 @@ permalink: /multiplemarkers/
         
         <a-marker 
             type = "pattern"
-            url = "../files/pattern-qr-code-animationqr.patt"
-            arjs = "patternRatio: 0.9;"
-            id = "pattern-qr-code-animationqr"
+            url = "../files/SEAmarker.patt"
+            id = "SEAmarker"
             emitevents = "true"
             markerhandler
             smoothCount = 0 
@@ -209,8 +208,9 @@ permalink: /multiplemarkers/
             markerhandler
             id = "hiro"
             preset = "hiro"
-            arjs = "patternRatio: 0.5;"
             emitevents = "true"
+            smoothCount = 0 
+            smoothTolerance = 0.0001
         >
             <a-video  
                 rotation = "270 0 0"
@@ -264,7 +264,7 @@ permalink: /multiplemarkers/
                   bottom: 0px;">
         <img 
             id = "markerimageref"
-            src = "../files/pattern-qr-code-animationqr.png" 
+            src = "../files/SEAmarker.png" 
             style = "width: 35vmin; 
                      height: auto;
                      postition: relative;
