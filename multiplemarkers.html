@@ -96,7 +96,9 @@ permalink: /multiplemarkers/
         }
     }
 </script>
-<script defer>
+<script>
+    // only runs when content loaded (not images or other media)
+    document.addEventListener("DOMContentLoaded", function(){
     // why is there an fps counter???????? 🤔🤨😟😧😧😩😩
     var fps = document.getElementById("fps");
     var startTime = Date.now();
@@ -113,6 +115,7 @@ permalink: /multiplemarkers/
         window.requestAnimationFrame(tick);
     }
     tick();
+    }); 
 </script> 
     
 <body style = "overflow: hidden">
