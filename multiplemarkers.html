@@ -18,9 +18,10 @@ permalink: /multiplemarkers/
     var currentMarker = 'null';
     AFRAME.registerComponent("markerhandler", {
       init: function () {
+            var marker = this.el
             marker.sceneEl.addEventListener("markerFound", function () {
                 // things to occur when marker is found
-                var markerID = this.el.id;
+                var markerID = marker.id;
                 console.log('Marker Detected: ', markerID);
                 currentMarker = markerID;
                 console.log('currentMarker: ', currentMarker);
@@ -41,7 +42,7 @@ permalink: /multiplemarkers/
             })
             marker.sceneEl.addEventListener("markerLost", function () {
                 // things to occur when marker is lost
-                var markerID = this.el.id;
+                var markerID = marker.id;
                 console.log('Marker Lost: ', markerID);
                 currentMarker = 'null';
                 console.log('currentMarker: ', currentMarker);
