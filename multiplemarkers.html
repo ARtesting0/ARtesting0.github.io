@@ -19,7 +19,7 @@ permalink: /multiplemarkers/
     AFRAME.registerComponent("markerhandler", {
       init: function () {
           const marker = this.el;
-          marker.sceneEl.addEventListener("markerFound", function () {
+          marker.addEventListener("markerFound", function () {
                 
               // things to occur when marker is found
               var markerID = marker.id;
@@ -41,7 +41,7 @@ permalink: /multiplemarkers/
               sidetext.style.color = '#017d05'
               
           })
-          marker.sceneEl.addEventListener("markerLost", function () {
+          marker.addEventListener("markerLost", function () {
               
               // things to occur when marker is lost
               var markerID = marker.id;
@@ -203,7 +203,8 @@ permalink: /multiplemarkers/
                   bottom: 93vh; 
                   font-family: Tahoma, sans-serif;
                   font-size: 3.855vmin;
-                  color: #d90202;">
+                  color: #d90202;
+                  background-color: #FFFFFF;">
       
       <span id = "fps">
       --
