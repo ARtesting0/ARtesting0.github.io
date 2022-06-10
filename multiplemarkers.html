@@ -157,7 +157,7 @@ permalink: /multiplemarkers/
     <a-scene 
         vr-mode-ui = "enabled: false;"
         loading-screen = "enabled: true;"
-        arjs = "trackingMethod: best; sourceType: webcam; patternRatio: 0.9; debugUIEnabled: false; detectionMode: mono"
+        arjs = "trackingMethod: best; sourceType: webcam; debugUIEnabled: false; detectionMode: mono"
         id = "scene"
         embedded
     >
@@ -189,6 +189,7 @@ permalink: /multiplemarkers/
         <a-marker 
             type = "pattern"
             url = "../files/pattern-qr-code-animationqr.patt"
+            arjs = "patternRatio: 0.9;"
             id = "pattern-qr-code-animationqr"
             emitevents = "true"
             markerhandler
@@ -207,6 +208,7 @@ permalink: /multiplemarkers/
             markerhandler
             id = "hiro"
             preset = "hiro"
+            arjs = "patternRatio: 0.5;"
             emitevents = "true"
         >
             <a-video  
