@@ -34,7 +34,9 @@ permalink: /multiplemarkers/
                   zebrasharkanimation.play();
               }
               
+              // enables and shows playpause button, removes the marker reference image on user's device, shows marker found text
               playpausebutton.disabled = false;
+              playpausebutton.style.display = 'inline';
               markerimageref.style.display = 'none';
               sidetext.innerHTML = sidetext.innerHTML.replace('Find and scan me!','Marker found! 👍');
               sidetext.style.color = '#017d05'
@@ -55,7 +57,9 @@ permalink: /multiplemarkers/
                   zebrasharkanimation.pause();
               }
               
+              // disables and hides playpause button, adds the marker reference image on user's device, shows marker not found text
               playpausebutton.disabled = true;
+              playpausebutton.style.display = 'none';
               markerimageref.style.display = 'inline';
               sidetext.innerHTML = sidetext.innerHTML.replace('Marker found! 👍','Find and scan me!');
               sidetext.style.color = '#d90202'
