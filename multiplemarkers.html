@@ -18,54 +18,53 @@ permalink: /multiplemarkers/
     var currentMarker = 'null';
     AFRAME.registerComponent("markerhandler", {
       init: function () {
-            marker.sceneEl.addEventListener("markerFound", function () {
+          const marker = this.el;
+          marker.sceneEl.addEventListener("markerFound", function () {
                 
-                // things to occur when marker is found
-                var marker = this.el;
-                var markerID = marker.id;
-                console.log('Marker Detected: ', markerID);
-                currentMarker = markerID;
-                console.log('currentMarker: ', currentMarker);
-                
-                // if markerID is this... plays the video of the marker's
-                if (markerID = "pattern-qr-code-animationqr") {
-                    mantarayanimation.play();
-                }
-                else if (markerID = "hiro") {
-                    zebrasharkanimation.play();
-                }
-                
-                playpausebutton.disabled = false;
-                markerimageref.style.display = 'none';
-                sidetext.innerHTML = sidetext.innerHTML.replace('Find and scan me!','Marker found! 👍');
-                sidetext.style.color = '#017d05'
-                
-            })
-            marker.sceneEl.addEventListener("markerLost", function () {
-                
-                // things to occur when marker is lost
-                var marker = this.el;
-                var markerID = marker.id;
-                console.log('Marker Lost: ', markerID);
-                currentMarker = 'null';
-                console.log('currentMarker: ', currentMarker);
-                
-                // if markerID is this... pauses the video of the marker's
-                if (markerID = "pattern-qr-code-animationqr") {
-                    mantarayanimation.pause();
-                }
-                else if (markerID = "hiro") {
-                    zebrasharkanimation.pause();
-                }
-                
-                playpausebutton.disabled = true;
-                markerimageref.style.display = 'inline';
-                sidetext.innerHTML = sidetext.innerHTML.replace('Marker found! 👍','Find and scan me!');
-                sidetext.style.color = '#d90202'
-                
-            })
-        }
-    });
+              // things to occur when marker is found
+              var markerID = marker.id;
+              console.log('Marker Detected: ', markerID);
+              currentMarker = markerID;
+              console.log('currentMarker: ', currentMarker);
+              
+              // if markerID is this... plays the video of the marker's
+              if (markerID = "pattern-qr-code-animationqr") {
+                  mantarayanimation.play();
+              }
+              else if (markerID = "hiro") {
+                  zebrasharkanimation.play();
+              }
+              
+              playpausebutton.disabled = false;
+              markerimageref.style.display = 'none';
+              sidetext.innerHTML = sidetext.innerHTML.replace('Find and scan me!','Marker found! 👍');
+              sidetext.style.color = '#017d05'
+              
+          })
+          marker.sceneEl.addEventListener("markerLost", function () {
+              
+              // things to occur when marker is lost
+              var markerID = marker.id;
+              console.log('Marker Lost: ', markerID);
+              currentMarker = 'null';
+              console.log('currentMarker: ', currentMarker);
+              
+              // if markerID is this... pauses the video of the marker's
+              if (markerID = "pattern-qr-code-animationqr") {
+                  mantarayanimation.pause();
+              }
+              else if (markerID = "hiro") {
+                  zebrasharkanimation.pause();
+              }
+              
+              playpausebutton.disabled = true;
+              markerimageref.style.display = 'inline';
+              sidetext.innerHTML = sidetext.innerHTML.replace('Marker found! 👍','Find and scan me!');
+              sidetext.style.color = '#d90202'
+              
+          })
+      }
+  });
 </script>
 <script> <!--Changes button image when video playing/paused. Dynamic playpause button-->
     function videoplaying(videoID) {
