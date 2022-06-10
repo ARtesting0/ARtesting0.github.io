@@ -5,7 +5,7 @@ permalink: /multiplemarkers/
 <html>
 
 <script src = "https://aframe.io/releases/1.0.4/aframe.min.js"></script>
-<script src = "https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+<script src = "../js/aframe-ar.js"></script>
 <script> <!--Remove loading screen when page & camera loaded-->
     window.onpageshow = function() {
         window.addEventListener('arjs-video-loaded', function () {
@@ -30,8 +30,7 @@ permalink: /multiplemarkers/
               // if markerID is this... plays the video of the marker's
               if (markerID = "pattern-qr-code-animationqr") {
                   mantarayanimation.play();
-              }
-              else if (markerID = "hiro") {
+              } else if (markerID = "hiro") {
                   zebrasharkanimation.play();
               }
               
@@ -52,8 +51,7 @@ permalink: /multiplemarkers/
               // if markerID is this... pauses the video of the marker's
               if (markerID = "pattern-qr-code-animationqr") {
                   mantarayanimation.pause();
-              }
-              else if (markerID = "hiro") {
+              } else if (markerID = "hiro") {
                   zebrasharkanimation.pause();
               }
               
@@ -86,8 +84,7 @@ permalink: /multiplemarkers/
               } else {
                   mantarayanimation.pause();
               }
-        }
-        else if (currentMarker = "hiro") { 
+        } else if (currentMarker = "hiro") { 
               if (zebrasharkanimation.paused) {
                   zebrasharkanimation.play();
               } else {
