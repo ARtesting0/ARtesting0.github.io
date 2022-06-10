@@ -95,25 +95,7 @@ permalink: /multiplemarkers/
               }
         }
     }
-</script>
-<script>
-    // why is there an fps counter????????
-    var fps = document.getElementById("fps");
-    var startTime = Date.now();
-    var frame = 0;
-    
-    function tick() {
-        var time = Date.now();
-        frame++;
-        if (time - startTime > 1000) {
-            fps.innerHTML = (frame / ((time - startTime) / 1000)).toFixed(1);
-            startTime = time;
-            frame = 0;
-        }
-        window.requestAnimationFrame(tick);
-    }
-    tick();
-</script>
+    </script>
     
 <body style = "overflow: hidden">
     <div 
@@ -218,7 +200,7 @@ permalink: /multiplemarkers/
     </a-scene>
     
     <div style = "position: relative; 
-                  bottom: 300px; 
+                  bottom: 65vh; 
                   font-family: Tahoma, sans-serif;
                   font-size: 3.855vmin;
                   color: #d90202;">
@@ -275,4 +257,24 @@ permalink: /multiplemarkers/
         </p>
     </div>
   </body>
+
+<script>
+    // why is there an fps counter???????? *have to be at bottom as it will load when everything loads
+    var fps = document.getElementById("fps");
+    var startTime = Date.now();
+    var frame = 0;
+    
+    function tick() {
+        var time = Date.now();
+        frame++;
+        if (time - startTime > 1000) {
+            fps.innerHTML = (frame / ((time - startTime) / 1000)).toFixed(1);
+            startTime = time;
+            frame = 0;
+        }
+        window.requestAnimationFrame(tick);
+    }
+    tick();
+</script>
+    
 </html>
