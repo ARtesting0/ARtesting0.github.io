@@ -18,12 +18,9 @@ permalink: /multiplemarkers/
     var currentMarker = 'null';
     AFRAME.registerComponent("markerhandler", {
       init: function () {
-            const marker = this.el;
             marker.sceneEl.addEventListener("markerFound", function () {
-                const marker = this.el;
-                
                 // things to occur when marker is found
-                var markerID = marker.id;
+                var markerID = this.el.id;
                 console.log('Marker Detected: ', markerID);
                 currentMarker = markerID;
                 console.log('currentMarker: ', currentMarker);
@@ -43,10 +40,8 @@ permalink: /multiplemarkers/
                 
             })
             marker.sceneEl.addEventListener("markerLost", function () {
-                const marker = this.el;
-                
                 // things to occur when marker is lost
-                var markerID = marker.id;
+                var markerID = this.el.id;
                 console.log('Marker Lost: ', markerID);
                 currentMarker = 'null';
                 console.log('currentMarker: ', currentMarker);
@@ -187,8 +182,8 @@ permalink: /multiplemarkers/
         <a-marker
             markerhandler
             id = "hiro"
-            preset='hiro'
-            emitevents='true'
+            preset = "hiro"
+            emitevents = "true"
         >
             <a-video  
                 rotation = "270 0 0"
