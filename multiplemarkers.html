@@ -4,9 +4,9 @@ permalink: /multiplemarkers/
 <!doctype html>
 <html>
 
-<script src = "https://aframe.io/releases/1.0.4/aframe.min.js"></script>
-<script src = "https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
-<script> <!--Remove loading screen when page & camera loaded-->
+<script src = "https://aframe.io/releases/1.0.4/aframe.min.js" async></script>
+<script src = "https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js" async></script>
+<script async> <!--Remove loading screen when page & camera loaded-->
     window.onpageshow = function() {
         window.addEventListener('arjs-video-loaded', function () {
             console.log("arjs-video-loaded");
@@ -68,7 +68,7 @@ permalink: /multiplemarkers/
       }
   });
 </script>
-<script> <!--Changes button image when video playing/paused. Dynamic playpause button-->
+<script async> <!--Changes button image when video playing/paused. Dynamic playpause button-->
     function videoplaying(videoID) {
         buttonimg.src = "../files/pause-256.png";
         console.log("playing video: ", videoID);
@@ -97,7 +97,7 @@ permalink: /multiplemarkers/
         }
     }
 </script>
-<script>
+<script async>
     // only runs when content loaded (not images or other media)
     document.addEventListener("DOMContentLoaded", function(){
     // why is there an fps counter???????? 🤔🤨😟😧😧😩😩
