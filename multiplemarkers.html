@@ -28,9 +28,9 @@ permalink: /multiplemarkers/
               console.log('currentMarker: ', currentMarker);
               
               // if markerID is this... plays the video of the marker's
-              if (markerID = "mantaray_qr") {
+              if (markerID === "mantaray_qr") {
                   mantarayanimation.play();
-              } else if (markerID = "zebrashark_qr") {
+              } else if (markerID === "zebrashark_qr") {
                   zebrasharkanimation.play();
               }
               
@@ -51,9 +51,9 @@ permalink: /multiplemarkers/
               console.log('currentMarker: ', currentMarker);
               
               // if markerID is this... pauses the video of the marker's
-              if (markerID = "mantaray_qr") {
+              if (markerID === "mantaray_qr") {
                   mantarayanimation.pause();
-              } else if (markerID = "zebrashark_qr") {
+              } else if (markerID === "zebrashark_qr") {
                   zebrasharkanimation.pause();
               }
               
@@ -82,13 +82,13 @@ permalink: /multiplemarkers/
         console.log("play pause: ", currentMarker);
         
         // if currentmarker is this... play its video
-        if (currentMarker = "mantaray_qr") { 
+        if (currentMarker === "mantaray_qr") { 
               if (mantarayanimation.paused) {
                   mantarayanimation.play();
               } else {
                   mantarayanimation.pause();
               }
-        } else if (currentMarker = "zebrashark_qr") { 
+        } else if (currentMarker === "zebrashark_qr") { 
               if (zebrasharkanimation.paused) {
                   zebrasharkanimation.play();
               } else {
