@@ -19,7 +19,7 @@ permalink: /mantaray/
     <script> <!--Detects when marker is found or lost. Currently plays/pauses video accordingly. markerhandler to be put in a-marker.-->
       AFRAME.registerComponent("markerhandler", {
         init: function () {
-          marker.addEventListener("markerFound", function () {
+          nft.addEventListener("markerFound", function () {
 
             // things to occur when marker is found
             console.log('marker found!');
@@ -35,7 +35,7 @@ permalink: /mantaray/
             
             })
             
-          marker.addEventListener("markerLost", function () {
+          nft.addEventListener("markerLost", function () {
 
             // things to occur when marker is lost
             console.log('marker lost!');
