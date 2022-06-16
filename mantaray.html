@@ -9,42 +9,57 @@ permalink: /mantaray/
     <script src = "https://aframe.io/releases/1.0.4/aframe.min.js"></script>
     <script src = "https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
     <script> <!--Remove loading screen when page & camera loaded-->
+      var otherloaded = false;
       window.onpageshow = function() {
           window.addEventListener('arjs-video-loaded', function () {
               console.log("arjs-video-loaded");
-              splash.style.display = 'none';
+              if (otherloaded === true) {
+                  splash.style.display = 'none';
+              } else {
+                  otherloaded = true;
+              }
+          
+          window.addEventListener('arjs-nft-loaded', function () {
+              console.log("arjs-nft-loaded");
+              if (otherloaded === true) {
+                  splash.style.display = 'none';
+              } else {
+                  otherloaded = true;
+              }
           })
       }
     </script>
     <script> <!--Detects when marker is found or lost. Currently plays/pauses video accordingly.-->
-      sceneEl.addEventListener("markerFound", (e) => {
-          // things to occur when marker is found
-          console.log('marker found!');
+      window.onpageshow = function() {
+          var sceneEl = document.querySelector('a-scene');
+          sceneEl.addEventListener("markerFound", function () {
+              // things to occur when marker is found
+              console.log('marker found!');
 
-          // Play the video
-          mantarayanimation.play();
+              // Play the video
+              mantarayanimation.play();
         
-          // enables and shows playpause button, removes the marker reference image on user's device, shows marker found text
-          // playpausebutton.disabled = false;
-          // playpausebutton.style.display = 'inline';
-          markerimageref.style.display = 'none';
-          sidetext.style.display = 'none';
-      });
+              // enables and shows playpause button, removes the marker reference image on user's device, shows marker found text
+              // playpausebutton.disabled = false;
+              // playpausebutton.style.display = 'inline';
+              markerimageref.style.display = 'none';
+              sidetext.style.display = 'none';
+          });
 
-      sceneEl.addEventListener("markerLost", (e) => {
-          // things to occur when marker is lost
-          console.log('marker lost!');
+          sceneEl.addEventListener("markerLost", function () {
+              // things to occur when marker is lost
+              console.log('marker lost!');
 
-          // Pause the video
-          mantarayanimation.pause();
+              // Pause the video
+              mantarayanimation.pause();
 
-          // disables and hides playpause button, adds the marker reference image on user's device, shows marker not found text
-          // playpausebutton.disabled = true;
-          // playpausebutton.style.display = 'none';
-          markerimageref.style.display = 'inline';
-          sidetext.style.display = 'inline';
-      });
-
+              // disables and hides playpause button, adds the marker reference image on user's device, shows marker not found text
+              // playpausebutton.disabled = true;
+              // playpausebutton.style.display = 'none';
+              markerimageref.style.display = 'inline';
+              sidetext.style.display = 'inline';
+          });
+      }
   </script>
   <script> <!--logs when video is played or paused-->
     function videoplaying(videoID) {
