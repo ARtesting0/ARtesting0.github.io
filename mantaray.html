@@ -16,42 +16,35 @@ permalink: /mantaray/
           })
       }
     </script>
-    <script> <!--Detects when marker is found or lost. Currently plays/pauses video accordingly. markerhandler to be put in a-marker.-->
-      AFRAME.registerComponent("markerhandler", {
-        init: function () {
-          nft.addEventListener("markerFound", function () {
+    <script> <!--Detects when marker is found or lost. Currently plays/pauses video accordingly.-->
+      sceneEl.addEventListener("markerFound", (e) => {
+          // things to occur when marker is found
+          console.log('marker found!');
 
-            // things to occur when marker is found
-            console.log('marker found!');
+          // Play the video
+          mantarayanimation.play();
+        
+          // enables and shows playpause button, removes the marker reference image on user's device, shows marker found text
+          // playpausebutton.disabled = false;
+          // playpausebutton.style.display = 'inline';
+          markerimageref.style.display = 'none';
+          sidetext.style.display = 'none';
+      });
 
-            // Play the video
-            mantarayanimation.play();
+      sceneEl.addEventListener("markerLost", (e) => {
+          // things to occur when marker is lost
+          console.log('marker lost!');
 
-            // enables and shows playpause button, removes the marker reference image on user's device, shows marker found text
-            // playpausebutton.disabled = false;
-            // playpausebutton.style.display = 'inline';
-            markerimageref.style.display = 'none';
-            sidetext.style.display = 'none';
-            
-            })
-            
-          nft.addEventListener("markerLost", function () {
+          // Pause the video
+          mantarayanimation.pause();
 
-            // things to occur when marker is lost
-            console.log('marker lost!');
+          // disables and hides playpause button, adds the marker reference image on user's device, shows marker not found text
+          // playpausebutton.disabled = true;
+          // playpausebutton.style.display = 'none';
+          markerimageref.style.display = 'inline';
+          sidetext.style.display = 'inline';
+      });
 
-            // Pause the video
-            mantarayanimation.pause();
-
-            // disables and hides playpause button, adds the marker reference image on user's device, shows marker not found text
-            // playpausebutton.disabled = true;
-            // playpausebutton.style.display = 'none';
-            markerimageref.style.display = 'inline';
-            sidetext.style.display = 'inline';
-
-            })
-        }
-    });
   </script>
   <script> <!--logs when video is played or paused-->
     function videoplaying(videoID) {
