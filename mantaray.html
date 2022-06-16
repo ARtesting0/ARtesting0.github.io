@@ -113,6 +113,7 @@ permalink: /mantaray/
         loading-screen = "enabled: false;"
         arjs = "trackingMethod: best; sourceType: webcam; debugUIEnabled: false; detectionMode: mono;"
         id = "scene"
+        renderer = "logarithmicDepthBuffer: true;"
         embedded
     >
         <a-assets>
@@ -134,14 +135,13 @@ permalink: /mantaray/
             id = "mantarayframe"
             emitevents = "true"
             markerhandler
-            smooth="true"
-            smoothCount="10"
-            smoothTolerance=".01"
-            smoothThreshold="5"
+            smoothCount = 0 
+            smoothTolerance = 0.0001
         >
             <a-video  
                 rotation = "270 0 0"
-                position = "0 0 0"
+                position = "140 0 -135"
+                scale = "355 242 1"
                 src = "#mantarayanimation"
             >
             </a-video>
