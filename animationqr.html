@@ -69,6 +69,10 @@ function discardElement(element)
               sidetext.innerHTML = sidetext.innerHTML.replace('Find and scan me!','Marker found!');
               sidetext.style.color = '#017d05'
               
+              //enables enter button
+              enterbutton.style.display = 'inline';
+              enterbutton.disabled = false;
+              
           })
           marker.addEventListener("markerLost", function () {
               
@@ -91,6 +95,10 @@ function discardElement(element)
               markerimageref.style.display = 'inline';
               sidetext.innerHTML = sidetext.innerHTML.replace('Marker found! 👍','Find and scan me!');
               sidetext.style.color = '#d90202'
+              
+              //disables enter button
+              enterbutton.style.display = 'none';
+              enterbutton.disabled = true;
               
           })
       }
@@ -148,6 +156,94 @@ function discardElement(element)
     tick();
     }); 
 </script> 
+
+<script>
+    function transition() {
+        //enterbutton removal animation
+        enterbutton.className = "fadedown";
+        
+        //throw away enterbutton once after delay (500ms animation finish)
+        setTimeout(() => { garbageBin.appendChild(enterbutton);
+                           garbageBin.innerHTML = ""; 
+                         }, 500);
+        
+        //start cool wave animation
+        
+    }
+</script>
+
+<style>
+    /* animation of enterbutton poppin in and out */
+    #enterbutton {
+       position:absolute;
+       top:10%;
+       left:10%;
+       -webkit-animation-name:grow;
+       -webkit-animation-duration:2s;
+       -webkit-animation-iteration-count:infinite;
+       -webkit-animation-timing-function:linear;
+       -moz-animation-name:grow;
+       -moz-animation-duration:2s;
+       -moz-animation-iteration-count:infinite;
+       -moz-animation-timing-function:linear;
+       -ms-animation-name:grow;
+       -ms-animation-duration:2s;
+       -ms-animation-iteration-count:infinite;
+       -ms-animation-timing-function:linear;
+    }
+    @-webkit-keyframes grow
+     {
+       0% {
+          -webkit-transform:scale(1);
+       }
+       50% {
+          -webkit-transform:scale(1.4);
+       }
+       100% {
+          -webkit-transform:scale(1);
+       }
+    }  
+    @-moz-keyframes grow
+     {
+       0% {
+          -moz-transform:scale(1);
+       }
+       50% {
+          -moz-transform:scale(1.4);
+       }
+       100% {
+          -moz-transform:scale(1);
+       }
+    }
+    @-ms-keyframes grow
+     {
+       0% {
+          -ms-transform:scale(1);
+       }
+       50% {
+          -ms-transform:scale(1.4);
+       }
+       100% {
+          -ms-transform:scale(1);
+       }
+    }
+
+    /* animation for after press animation button */
+    .fadedown {
+        animation: fadedown 0.5s forwards;
+    }
+    @keyframes fadedown {
+        0% {
+            transform: translateY(0px);
+            opacity: 1;
+        }
+        100% {
+            transform: translateY(100px);
+            opacity: 0;
+        }
+    }
+    
+</style>
     
 <body style = "overflow: hidden">
     <div 
@@ -286,5 +382,25 @@ function discardElement(element)
         <span style = "background-color: #FFFFFF"><b>Find and scan me!<b></span><br> 
         </p>
     </div>
+    <button
+        disabled
+            id = "enterbutton"
+            style = "position: fixed; 
+                     top: 55vh; 
+                     left: 50vw; 
+                     padding: 10px 10px; 
+                     background-color: #e3cc00; 
+                     border: none;
+                     border-radius: 50%;
+                     display: none;"
+            type = "button"
+            onclick = "transition()"
+        >
+        <img 
+                 src = "https://artesting0.github.io/files/white-magnifying-glass.png" 
+                 style = "width: 90%; height: 5vmax; width: 5vmax"
+                 id = "enterbuttonimg"
+                 />
+        </button>
   </body>
 </html>
