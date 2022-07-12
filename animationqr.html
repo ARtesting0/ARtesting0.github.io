@@ -35,7 +35,10 @@ function discardElement(element)
 <script> <!--Remove loading screen when page & camera loaded-->
         window.addEventListener('arjs-video-loaded', function () {
             console.log("arjs-video-loaded");
-            discardElement(splash);
+            
+            //remove
+            garbageBin.appendChild(splash);
+            garbageBin.innerHTML = "";
         })
 </script>
 
