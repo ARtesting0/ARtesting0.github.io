@@ -25,7 +25,7 @@ permalink: /animationqr/
               currentMarker = markerID;
               console.log('currentMarker: ', currentMarker);
               
-              // if markerID is this... plays the video of the marker's
+              // if markerID is this... plays the video of the marker's (hiro marker currently not in use)
               if (markerID = "pattern-qr-code-animationqr") {
                   mantarayanimation.play();
               } else if (markerID = "hiro") {
@@ -36,7 +36,7 @@ permalink: /animationqr/
               playpausebutton.disabled = false;
               playpausebutton.style.display = 'inline';
               markerimageref.style.display = 'none';
-              sidetext.innerHTML = sidetext.innerHTML.replace('Find and scan me!','Marker found! 👍');
+              sidetext.innerHTML = sidetext.innerHTML.replace('Find and scan me!','Marker found!');
               sidetext.style.color = '#017d05'
               
           })
@@ -48,7 +48,7 @@ permalink: /animationqr/
               currentMarker = 'null';
               console.log('currentMarker: ', currentMarker);
               
-              // if markerID is this... pauses the video of the marker's
+              // if markerID is this... pauses the video of the marker's (hiro marker currently not in use)
               if (markerID = "pattern-qr-code-animationqr") {
                   mantarayanimation.pause();
               } else if (markerID = "hiro") {
@@ -79,7 +79,7 @@ permalink: /animationqr/
     function playpause() {
         console.log("play pause: ", currentMarker);
         
-        // if currentmarker is this... play its video
+        // if currentmarker is this... play its video (hiro marker currently not in use)
         if (currentMarker = "pattern-qr-code-animationqr") { 
               if (mantarayanimation.paused) {
                   mantarayanimation.play();
