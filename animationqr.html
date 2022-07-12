@@ -4,10 +4,11 @@ permalink: /animationqr/
 <!doctype html>
 <html>
 
+<head>
 <script src = "https://aframe.io/releases/1.0.4/aframe.min.js"></script>
 <script src = "https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
 
-<script>
+<script defer>
 var garbageBin;
 window.onload = function ()
 {
@@ -32,7 +33,7 @@ function discardElement(element)
 }
 </script>
 
-<script> <!--Remove loading screen when page & camera loaded-->
+<script defer> <!--Remove loading screen when page & camera loaded-->
         window.addEventListener('arjs-video-loaded', function () {
             console.log("arjs-video-loaded");
             
@@ -105,7 +106,7 @@ function discardElement(element)
   });
 </script>
 
-<script> <!--Changes button image when video playing/paused. Dynamic playpause button-->
+<script defer> <!--Changes button image when video playing/paused. Dynamic playpause button-->
     function videoplaying(videoID) {
         buttonimg.src = "../files/pause-256.png";
         console.log("playing video: ", videoID);
@@ -135,7 +136,7 @@ function discardElement(element)
     }
 </script>
 
-<script>
+<script defer>
     // only runs when content loaded (not images or other media)
     document.addEventListener("DOMContentLoaded", function(){
     // why is there an fps counter???????? 🤔🤨😟😧😧😩😩
@@ -157,7 +158,7 @@ function discardElement(element)
     }); 
 </script> 
 
-<script>
+<script defer>
     function transition() {
         //enterbutton removal animation
         enterbutton.className = "fadedown";
@@ -244,6 +245,7 @@ function discardElement(element)
     }
     
 </style>
+</head>
     
 <body style = "overflow: hidden">
     <div 
