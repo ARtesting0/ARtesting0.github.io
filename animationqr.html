@@ -67,8 +67,7 @@ function discardElement(element)
               playpausebutton.disabled = false;
               playpausebutton.style.display = 'inline';
               markerimageref.style.display = 'none';
-              sidetext.innerHTML = sidetext.innerHTML.replace('Find and scan me!','Marker found!');
-              sidetext.style.color = '#017d05'
+              sidetext.style.display = 'inline';
               
               //enables enter button
               enterbutton.style.display = 'inline';
@@ -94,8 +93,7 @@ function discardElement(element)
               playpausebutton.disabled = true;
               playpausebutton.style.display = 'none';
               markerimageref.style.display = 'inline';
-              sidetext.innerHTML = sidetext.innerHTML.replace('Marker found! 👍','Find and scan me!');
-              sidetext.style.color = '#d90202'
+              sidetext.style.display = 'none';
               
               //disables enter button
               enterbutton.style.display = 'none';
@@ -161,7 +159,7 @@ function discardElement(element)
 <script defer>
     function transition() {
         //enterbutton removal animation
-        enterbutton.className = "fadedown";
+        enterbutton.className = "fade";
         
         //throw away enterbutton once after delay (500ms animation finish)
         setTimeout(() => { garbageBin.appendChild(enterbutton);
@@ -230,16 +228,14 @@ function discardElement(element)
     }
 
     /* animation for after press animation button */
-    .fadedown {
-        animation: fadedown 0.5s forwards;
+    .fade {
+        animation: fade 0.5s forwards;
     }
     @keyframes fadedown {
         0% {
-            transform: translateY(0px);
             opacity: 1;
         }
         100% {
-            transform: translateY(100px);
             opacity: 0;
         }
     }
@@ -389,9 +385,9 @@ function discardElement(element)
             id = "enterbutton"
             class = "poppin"
             style = "position: fixed; 
-                     top: 60vh; 
-                     left: 45vw; 
-                     padding: 10px 10px; 
+                     bottom: 30px; 
+                     left: 39.5vmax; 
+                     padding: 2.5vmax 2.5vmax; 
                      background-color: #e3cc00; 
                      border: none;
                      border-radius: 50%;
@@ -401,7 +397,7 @@ function discardElement(element)
         >
         <img 
                  src = "../files/white-magnifying-glass.png" 
-                 style = "height: 5vmax; width: 5vmax"
+                 style = "height: 7.5vmax; width: 8vmax"
                  id = "enterbuttonimg"
                  />
         </button>
