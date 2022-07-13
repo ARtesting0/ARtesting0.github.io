@@ -1,5 +1,5 @@
 ---
-permalink: /animationqr/
+permalink: /mantarayqr/
 ---
 <!doctype html>
 <html>
@@ -56,11 +56,9 @@ function discardElement(element)
               currentMarker = markerID;
               console.log('currentMarker: ', currentMarker);
               
-              // if markerID is this... plays the video of the marker's (hiro marker currently not in use)
+              // if markerID is this... plays the video of the marker's
               if (markerID = "pattern-qr-code-animationqr") {
                   mantarayanimation.play();
-              } else if (markerID = "hiro") {
-                  zebrasharkanimation.play();
               }
               
               // enables and shows playpause button, removes the marker reference image on user's device, shows marker found text
@@ -82,11 +80,9 @@ function discardElement(element)
               currentMarker = 'null';
               console.log('currentMarker: ', currentMarker);
               
-              // if markerID is this... pauses the video of the marker's (hiro marker currently not in use)
+              // if markerID is this... pauses the video of the marker's
               if (markerID = "pattern-qr-code-animationqr") {
                   mantarayanimation.pause();
-              } else if (markerID = "hiro") {
-                  zebrasharkanimation.pause();
               }
               
               // disables and hides playpause button, adds the marker reference image on user's device, shows marker not found text
@@ -117,44 +113,15 @@ function discardElement(element)
     function playpause() {
         console.log("play pause: ", currentMarker);
         
-        // if currentmarker is this... play its video (hiro marker currently not in use)
+        // if currentmarker is this... play its video
         if (currentMarker = "pattern-qr-code-animationqr") { 
               if (mantarayanimation.paused) {
                   mantarayanimation.play();
               } else {
                   mantarayanimation.pause();
               }
-        } else if (currentMarker = "hiro") { 
-              if (zebrasharkanimation.paused) {
-                  zebrasharkanimation.play();
-              } else {
-                  zebrasharkanimation.pause();
-              }
-        }
     }
 </script>
-
-<script defer>
-    // only runs when content loaded (not images or other media)
-    document.addEventListener("DOMContentLoaded", function(){
-    // why is there an fps counter???????? 🤔🤨😟😧😧😩😩
-    var fps = document.getElementById("fps");
-    var startTime = Date.now();
-    var frame = 0;
-    
-    function tick() {
-        var time = Date.now();
-        frame++;
-        if (time - startTime > 1000) {
-            fps.innerHTML = (frame / ((time - startTime) / 1000)).toFixed(1);
-            startTime = time;
-            frame = 0;
-        }
-        window.requestAnimationFrame(tick);
-    }
-    tick();
-    }); 
-</script> 
 
 <script defer>
     function transition() {
@@ -167,6 +134,10 @@ function discardElement(element)
                          }, 500);
         
         //start cool wave animation
+        
+        
+        //move to quiz site
+        window.location.href = "https://artesting0.github.io/mantarayquiz";
         
     }
 </script>
