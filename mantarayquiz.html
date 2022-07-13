@@ -4,11 +4,59 @@ permanlink: /mantarayquiz/
 
 <!DOCTYPE html>
 <head>
+<script>
+window.onload = function() {
+  for (let i = 1; i < 8; i++) {
+    var newbubble = document.createElement('bubble')
+    newbubble.className = 'bubble';
+    newbubble.style.left = Math.random() * 100 + 'vw';
+    newbubble.style.animationDelay = '-' + Math.random() * 20 + 's';
+    bubbleholder.appendChild(newcloud);
+    
+    //remove after later
+    setTimeout(() => {
+            newcloud.remove();
+        }, 2000);
+  }
+}
 
+function createBubble() {
+    var newbubble = document.createElement('bubble')
+    newbubble.className = 'bubble';
+    newbubble.style.left = Math.random() * 100 + 'vw';
+    bubbleholder.appendChild(newcloud);
+    
+    //remove after later
+    setTimeout(() => {
+            newcloud.remove();
+        }, 2000);
+}
+setInterval(createBubble, 1000);
+</script>
+  
+<style>
+    @keyframes movetotop {
+      from {top: 110vh;}
+      to {top: -10vh;}
+    }
+
+    .bubble {
+      width: 35px; height: 35px;
+      border-radius: 50%;
+      position: fixed;
+      background: radial-gradient(transparent, #ffffff);
+
+      animation-name: movetotop;
+      animation-duration: 20s;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+    }
+</style>
+  
 </head>
 
-<body style = "overflow: hidden">
-<div>
+<body style = "overflow: hidden; background-color: #ACEAFF;">
+<div id = "bubbleholder">
 
 </div>
 
