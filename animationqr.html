@@ -8,7 +8,9 @@ permalink: /animationqr/
 
 <!--Favicon stuff-->
 <link rel="icon" type="image/x-icon" href="../files/favicon.ico">
-        
+
+<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+
 <script src = "https://aframe.io/releases/1.0.4/aframe.min.js"></script>
 <script src = "https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
 
@@ -204,7 +206,11 @@ permalink: /animationqr/
                left: 0;
                right: 0;
                margin: auto;
-               background-color: #000000;"
+               background-color: #000000;
+               color: #ffffff;
+               font-family: 'Montserrat';
+               font-size: 3vh;
+               text-align: center;"
                >
         <div id = "loading"
              style = "width: 24px;
@@ -224,8 +230,10 @@ permalink: /animationqr/
                 }
             </style>
         </div>
+        <br>
+        This will take less than 5 seconds...
     </div>
-    
+
     <a-scene 
         vr-mode-ui = "enabled: false;"
         loading-screen = "enabled: true;"
