@@ -4,34 +4,18 @@ permanlink: /mantarayquiz/
 
 <!DOCTYPE html>
 <head>
-<script>
+<script defer>
 window.onload = function() {
-  for (let i = 1; i < 8; i++) {
+  for (let i = 1; i < 10; i++) {
     var newbubble = document.createElement('bubble')
     newbubble.className = 'bubble';
-    newbubble.style.left = Math.random() * 100 + 'vw';
+    newbubble.style.left = i * 10 + 'vw'
     newbubble.style.animationDelay = '-' + Math.random() * 20 + 's';
-    bubbleholder.appendChild(newcloud);
+    bubbleholder.appendChild(newbubble);
     
-    //remove after later
-    setTimeout(() => {
-            newbubble.remove();
-        }, 20000);
   }
 }
 
-function createBubble() {
-    var newbubble = document.createElement('bubble')
-    newbubble.className = 'bubble';
-    newbubble.style.left = Math.random() * 100 + 'vw';
-    bubbleholder.appendChild(newcloud);
-    
-    //remove after later
-    setTimeout(() => {
-            newbubble.remove();
-        }, 20000);
-}
-setInterval(createBubble, 3000);
 </script>
   
 <style>
@@ -57,7 +41,25 @@ setInterval(createBubble, 3000);
 
 <body style = "overflow: hidden; background-color: #ACEAFF;">
 <div id = "bubbleholder" style = "width: 100vw; height: 30px; left: 0px">
+</div>
 
+<div style = "text-align: center; position: relative;">
+<video src = "https://artesting0.github.io/files/mantaray-YT.mp4"
+       type="video/mp4" 
+       width = "320" height = "auto"
+       style = "right: 0; 
+                bottom: 0;
+                min-width: 100%; 
+                min-height: 100%;
+                width: 75vw; 
+                height: auto; 
+                max-height: 50vh;
+                z-index: -1;
+                background-size: cover;
+                overflow: hidden;"
+       autoplay loop
+       >
+</video>
 </div>
 
 </body>
