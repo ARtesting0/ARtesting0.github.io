@@ -4,12 +4,12 @@ permanlink: /mantarayquiz/
 
 <!DOCTYPE html>
 <head>
-  
+
 <!--Favicon stuff-->
-<link rel="icon" type="image/x-icon" href="../files/favicon.ico">
+<link rel="icon" type="image/x-icon" href="files/favicon.ico">
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
-  
+
 <script defer>
 window.onload = function() {
   for (let i = 1; i < 10; i++) {
@@ -18,12 +18,12 @@ window.onload = function() {
     newbubble.style.left = i * 10 + 'vw'
     newbubble.style.animationDelay = '-' + Math.random() * 20 + 's';
     bubbleholder.appendChild(newbubble);
-    
+
   }
 }
 
 </script>
-  
+
 <style>
     @keyframes movetotop {
       from {top: 110vh;}
@@ -35,6 +35,7 @@ window.onload = function() {
       border-radius: 50%;
       position: fixed;
       background: radial-gradient(transparent, #ffffff);
+      opacity: 0.25;
 
       animation-name: movetotop;
       animation-duration: 20s;
@@ -42,23 +43,23 @@ window.onload = function() {
       animation-iteration-count: infinite;
     }
 </style>
-  
+
 </head>
 
-<body style = "overflow: hidden; background-color: #ACEAFF;">
+<body style = "overflow: hidden; background-color: #a0b9c6;">
 <div id = "bubbleholder" style = "width: 100vw; height: 30px; left: 0px">
 </div>
 
 <div style = "text-align: center; position: relative;">
-<video src = "../files/mantaray-YT2.mp4"
-       type="video/mp4" 
+<video src = "files/mantaray-YT2.mp4"
+       type="video/mp4"
        width = "320" height = "auto"
-       style = "right: 0; 
+       style = "right: 0;
                 bottom: 0;
-                min-width: 100%; 
+                min-width: 100%;
                 min-height: 100%;
-                width: 75vw; 
-                height: auto; 
+                width: 75vw;
+                height: auto;
                 max-height: 50vh;
                 z-index: -1;
                 background-size: cover;
