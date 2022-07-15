@@ -8,6 +8,8 @@ permanlink: /mantarayquiz/
 <!--Favicon stuff-->
 <link rel="icon" type="image/x-icon" href="files/favicon.ico">
 
+<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <script defer>
@@ -42,7 +44,31 @@ window.onload = function() {
       animation-timing-function: linear;
       animation-iteration-count: infinite;
     }
+
+    #animatingtext {
+      white-space: nowrap;
+      animation: typing 1s steps(20, end) forwards;
+      font-size: 5vw;
+      width: 0;
+      font-family: 'Montserrat';
+      padding-left: 10px;
+      display: inline-block; line-height: normal; vertical-align: middle;
+      overflow: hidden;
+    }
+    @keyframes typing {
+      from { width: 0; }
+      to { width: 100% }
+    }
 </style>
+
+<script defer>
+window.onload = function(){
+  animatingtext.addEventListener('animationend', ()=>{
+    var nextanimation = textholder.getElementById('hidden');
+    nextanimation.setAttribute("id", "animatingtext");
+  })
+}
+</script>
 
 </head>
 
@@ -67,6 +93,18 @@ window.onload = function() {
        autoplay loop muted
        >
 </video>
+</div>
+
+<div id = "questionbox"
+     style = "width:80vw;
+              position: relative; top: 20px; left: 0px; margin-left: auto; margin-right: auto;
+              background-color: #FFFFFF; border: 5px solid black;
+              border-radius: 10px 10px 10px 10px;
+              line-height: 35vh">
+  <p id = "textholder">
+    <b id = "animatingtext">???: Hey there! Guess what <br></b>
+    <b id = "hidden" style = "display: none;"> animal I am! </b>
+  </p>
 </div>
 
 </body>
