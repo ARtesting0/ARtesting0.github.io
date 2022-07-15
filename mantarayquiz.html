@@ -93,9 +93,9 @@ function listener(i) {
       truebuttonholder.children[3].children[0].innerText = " Shark ";
     }
     else if (i == 2) {
-      typeHiddenMsg("animatingtext", "text2", 40);
+      typeHiddenMsg("animatingtext", "text2", 25);
     }
-    else if (i == 3) {
+    else if (i == 3 || i == 5) {
       var clicktext = document.getElementById("clicktext");
       clicktext.style.display = "inline";
       document.addEventListener("click", function() {
@@ -105,6 +105,12 @@ function listener(i) {
     else if (i == 4) {
       document.getElementById("clicktext").style.display = "none";
       document.getElementById("animatingtext").innerText = "";
+      typeHiddenMsg("animatingtext", "text3", 25);
+    }
+    else if (i == 6) {
+      document.getElementById("clicktext").style.display = "none";
+      document.getElementById("animatingtext").innerText = "";
+      typeHiddenMsg("animatingtext", "text4", 25);
     }
   }, false);
 }
@@ -119,7 +125,7 @@ window.onload = function(){
     bubbleholder.appendChild(newbubble);
   }
   //start animation
-  typeHiddenMsg("animatingtext", "quiz1", 40);
+  typeHiddenMsg("animatingtext", "quiz1", 25);
   //start listener
   listener(0);
 }
@@ -219,6 +225,9 @@ function right(event) {
      style = "display: none;"> Click anywhere to continue... <b>
 </div>
 
-<code id = "quiz1" style="display:none">???: Hey there! Do you know what marine animal am I? </code>
+<code id = "quiz1" style="display:none">???: Hey there! Do you know what kind of marine animal I am? </code>
 <code id = "text2" style="display:none">Manjas: That's right! I am a manta ray living in the S.E.A. Aquarium, and I have a name — Manjas! Unlike those born with a name, I chose my own name along with my siblings, Mika and Mako. </code>
+<code id = "text3" style="display:none">Manjas: Before we chose our names, we were simply known as M1, M2 and M3. Very boring, isn’t it? My current name Manja means “affectionate”, Mika means “intelligent” and Mako means “strength”. Pretty cool, huh?</code>
+<code id = "text4" style="display:none">Manjas: Us reef manta rays are one of the world's smartest fish! We are intelligent and every one of us has a unqiue personality!</code>
+
 </body>
