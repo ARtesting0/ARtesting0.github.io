@@ -12,20 +12,6 @@ permanlink: /mantarayquiz/
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<script defer>
-window.onload = function() {
-  for (let i = 1; i < 10; i++) {
-    var newbubble = document.createElement('bubble')
-    newbubble.className = 'bubble';
-    newbubble.style.left = i * 10 + 'vw'
-    newbubble.style.animationDelay = '-' + Math.random() * 20 + 's';
-    bubbleholder.appendChild(newbubble);
-
-  }
-}
-
-</script>
-
 <style>
     @keyframes movetotop {
       from {top: 110vh;}
@@ -46,33 +32,124 @@ window.onload = function() {
     }
 
     #animatingtext {
-      white-space: nowrap;
-      animation: typing 1s steps(20, end) forwards;
-      font-size: 5vw;
-      width: 0;
+      white-space: normal;
+      font-size: 3vh;
       font-family: 'Montserrat';
-      padding-left: 10px;
+      padding-left: 10px; padding-right: 5px;
       display: inline-block; line-height: normal; vertical-align: middle;
-      overflow: hidden;
-    }
-    @keyframes typing {
-      from { width: 0; }
-      to { width: 100% }
+      overflow: visible;
     }
 </style>
 
-<script defer>
+<script>
+//event creator
+const finishevent = new Event('finishevent');
+
+//typing animation
+var typeHiddenMsg = function (targetId, referenceId, interval){
+    var i = 0;
+    var reference = document.getElementById(referenceId);
+    var referencetext = reference.innerText;
+    var length = referencetext.length;
+    var target = document.getElementById(targetId);
+    var targettext = target.innerText;
+    inner();
+
+    function inner() {
+      if (i == length) {
+        console.log("animation finish");
+        setTimeout(function() {
+          document.dispatchEvent(finishevent);
+        }, 1000)
+        return;
+      }
+      i++
+      setTimeout(function () {
+        target.innerText = referencetext.substr(0, i);
+        inner();
+      }, interval)
+    }
+}
+
+//listens for finish events to progress
+function listener(i) {
+  document.addEventListener('finishevent', function(e){
+    i++;
+    console.log("received animation finish number, " + i.toString());
+    if (i == 1) {
+      var buttonholder = document.getElementById("buttonholder");
+      var topoffset = buttonholder.getBoundingClientRect().top + document.documentElement.scrollTop;
+      var setheight = screen.height - topoffset - 15;
+      buttonholder.style.height = setheight.toString() + "px";
+      var truebuttonholder = document.getElementById("truebuttonholder")
+      truebuttonholder.style.display = "inline";
+      truebuttonholder.children[0].setAttribute("onclick", "wrong(event)")
+      truebuttonholder.children[0].children[0].innerText = " Stingray ";
+      truebuttonholder.children[1].setAttribute("onclick", "right(event)")
+      truebuttonholder.children[1].children[0].innerText = " Manta ray ";
+      truebuttonholder.children[2].setAttribute("onclick", "wrong(event)")
+      truebuttonholder.children[2].children[0].innerText = " Dolphin ";
+      truebuttonholder.children[3].setAttribute("onclick", "wrong(event)")
+      truebuttonholder.children[3].children[0].innerText = " Shark ";
+    }
+    else if (i == 2) {
+      typeHiddenMsg("animatingtext", "text2", 40);
+    }
+    else if (i == 3) {
+      var clicktext = document.getElementById("clicktext");
+      clicktext.style.display = "inline";
+      document.addEventListener("click", function() {
+        document.dispatchEvent(finishevent);
+      })
+    }
+    else if (i == 4) {
+      document.getElementById("clicktext").style.display = "none";
+      document.getElementById("animatingtext").innerText = "";
+    }
+  }, false);
+}
+
 window.onload = function(){
-  animatingtext.addEventListener('animationend', ()=>{
-    var nextanimation = textholder.getElementById('hidden');
-    nextanimation.setAttribute("id", "animatingtext");
-  })
+  //bubble maker
+  for (let i = 1; i < 10; i++) {
+    var newbubble = document.createElement('bubble')
+    newbubble.className = 'bubble';
+    newbubble.style.left = i * 10 + 'vw'
+    newbubble.style.animationDelay = '-' + Math.random() * 20 + 's';
+    bubbleholder.appendChild(newbubble);
+  }
+  //start animation
+  typeHiddenMsg("animatingtext", "quiz1", 40);
+  //start listener
+  listener(0);
 }
 </script>
 
+<script>
+function wrong(event) {
+  var button = event.target;
+  console.log("u wrong " + button.id);
+  button.style.backgroundColor = "#ff0d00";
+}
+
+function right(event) {
+  var button = event.target;
+  console.log("u right " + button.id);
+  for (let i = 0; i < 4; i++) {
+    var truebuttonholder = document.getElementById("truebuttonholder");
+    truebuttonholder.children[i].style.backgroundColor = "#ff0d00";
+  }
+  button.style.backgroundColor = "#1eff00";
+  setTimeout(function() {
+    document.getElementById("animatingtext").innerText = "";
+    truebuttonholder.style.display = "none";
+    document.dispatchEvent(finishevent);
+  }, 1000)
+}
+</script>
 </head>
 
-<body style = "overflow: hidden; background-color: #a0b9c6;">
+<body style = "overflow: hidden; background-color: #a0b9c6; margin: 0; height: 100%;">
 <div id = "bubbleholder" style = "width: 100vw; height: 30px; left: 0px">
 </div>
 
@@ -86,7 +163,7 @@ window.onload = function(){
                 min-height: 100%;
                 width: 75vw;
                 height: auto;
-                max-height: 50vh;
+                max-height: 35vh;
                 z-index: -1;
                 background-size: cover;
                 overflow: hidden;"
@@ -100,11 +177,48 @@ window.onload = function(){
               position: relative; top: 20px; left: 0px; margin-left: auto; margin-right: auto;
               background-color: #FFFFFF; border: 5px solid black;
               border-radius: 10px 10px 10px 10px;
-              line-height: 35vh">
-  <p id = "textholder">
-    <b id = "animatingtext">???: Hey there! Guess what <br></b>
-    <b id = "hidden" style = "display: none;"> animal I am! </b>
-  </p>
+              line-height: 10px;">
+    <p>
+      <b id = "animatingtext">
+
+      </b>
+    </p>
 </div>
 
+<div id = "buttonholder"
+     style = "position: relative; top: 6vh;
+              width: 80vw; margin-left: auto; margin-right: auto;
+              ">
+  <div id = "truebuttonholder" style = "display: none;">
+    <button id = "buttontopleft"
+            style = "font-size: 5vw; font-family: 'Montserrat';
+                     position: absolute; left: 0px; top: 0px;
+                     height: 50%; width: 50%;">
+      <b style = "pointer-events: none;"></b>
+    </button>
+    <button id = "buttontopright"
+            style = "font-size: 5vw; font-family: 'Montserrat';
+                     position: absolute; right: 0px; top: 0px;
+                     height: 50%; width: 50%;">
+      <b style = "pointer-events: none;"></b>
+    </button>
+    <button id = "buttonbottomleft"
+            style = "font-size: 5vw; font-family: 'Montserrat';
+                     position: absolute; left: 0px; bottom: 0px;
+                     height: 50%; width: 50%;">
+      <b style = "pointer-events: none;"></b>
+    </button>
+    <button id = "buttonbottomright"
+            style = "font-size: 5vw; font-family: 'Montserrat';
+                     position: absolute; right: 0px; bottom: 0px;
+                     height: 50%; width: 50%;">
+      <b style = "pointer-events: none;"></b>
+    </button>
+  </div>
+  <b id = "clicktext"
+     style = "display: none;"> Click anywhere to continue... <b>
+</div>
+
+<code id = "quiz1" style="display:none">???: Hey there! Do you know what marine animal am I? </code>
+<code id = "text2" style="display:none">Manjas: That's right! I am a manta ray living in the S.E.A. Aquarium, and I have a name — Manjas! Unlike those born with a name, I chose my own name along with my siblings, Mika and Mako. </code>
 </body>
