@@ -39,6 +39,19 @@ permanlink: /mantarayquiz/
       display: inline-block; line-height: normal; vertical-align: middle;
       overflow: visible;
     }
+    
+    @keyframes blinking {
+      0% {opacity: 1}
+      50% {opacity: 0}
+      100% {opacity: 1}
+    }
+    
+    #clicktext {
+      animation-name: blinking;
+      animation-duration: 2s;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+    }
 </style>
 
 <script>
