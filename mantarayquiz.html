@@ -159,6 +159,9 @@ function listener(i) {
 }
 
 window.onload = function(){
+  //play animation
+  mantarayanimation.play();
+    
   //bubble maker
   for (let i = 1; i < 10; i++) {
     var newbubble = document.createElement('bubble')
@@ -201,7 +204,8 @@ function right(event) {
 </div>
 
 <div style = "text-align: center; position: relative;">
-<video src = "files/mantaray-YT2.mp4"
+<video id = "mantarayanimation"
+       src = "files/mantaray-YT2.mp4"
        type="video/mp4"
        width = "320" height = "auto"
        style = "right: 0;
