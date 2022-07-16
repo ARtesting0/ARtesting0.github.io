@@ -131,7 +131,7 @@ function listener(i) {
     else if (i == 9) {
       var buttonholder = document.getElementById("buttonholder");
       var topoffset = buttonholder.getBoundingClientRect().top + document.documentElement.scrollTop;
-      var setheight = screen.height - topoffset - 15;
+      var setheight = window.innerHeight - topoffset - 15;
       buttonholder.style.height = setheight.toString() + "px";
       var truebuttonholder = document.getElementById("truebuttonholder")
       truebuttonholder.style.display = "inline";
