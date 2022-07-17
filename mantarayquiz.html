@@ -233,7 +233,7 @@ window.onload = playvideo();
 </head>
 
 <body style = "overflow: hidden; background-color: #a0b9c6; margin: 0; height: 100%;">
-<div id = "bubbleholder" style = "width: 100vw; height: 30px; left: 0px">
+<div id = "bubbleholder" style = "width: 100vw; height: 0px; left: 0px">
 </div>
 
 <div style = "text-align: center; position: relative;">
@@ -241,13 +241,9 @@ window.onload = playvideo();
        src = "files/mantaray-YT2.mp4"
        type="video/mp4"
        width = "320" height = "auto"
-       style = "right: 0;
-                bottom: 0;
-                min-width: 100%;
-                min-height: 100%;
-                width: 75vw;
-                height: auto;
-                max-height: 35vh;
+       style = "bottom: 0; padding-left: 5px; padding-right: 5px;
+                min-width: 100%; min-height: 100%;
+                width: 75vw; max-width: 320px; height: auto; max-height: 45vh;
                 z-index: -1;
                 background-size: cover;
                 overflow: hidden;"
