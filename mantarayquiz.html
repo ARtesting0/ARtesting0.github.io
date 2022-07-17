@@ -172,15 +172,12 @@ function listener(i) {
 }
 
 window.onload = function(){
-  //play animation
-  mantarayanimation.play();
-
   //bubble maker
-  for (let i = 1; i < 10; i++) {
+  for (let i = 1; i < 20; i++) {
     var newbubble = document.createElement('bubble')
     newbubble.className = 'bubble';
     newbubble.style.left = i * 10 + 'vw'
-    newbubble.style.animationDelay = '-' + Math.random() * 20 + 's';
+    newbubble.style.animationDelay = '-' + i * Math.random() * Math.random() * 10 + 's';
     bubbleholder.appendChild(newbubble);
   }
   //start animation
@@ -193,22 +190,45 @@ window.onload = function(){
 <script>
 function wrong(event) {
   var button = event.target;
+  button.onclick = "";
   console.log("u wrong " + button.id);
   button.style.backgroundColor = "#ff0d00";
 }
 
 function right(event) {
   var button = event.target;
+  button.onclick = "";
   console.log("u right " + button.id);
   for (let i = 0; i < 4; i++) {
     var truebuttonholder = document.getElementById("truebuttonholder");
     truebuttonholder.children[i].style.backgroundColor = "#ff0d00";
+    truebuttonholder.children[i].onclick = "";
   }
   button.style.backgroundColor = "#1eff00";
   setTimeout(function() {
     document.dispatchEvent(finishevent);
   }, 1000)
 }
+</script>
+
+<script>
+//keep trying to play!
+var mantarayanimation = document.getElementById("mantarayanimation");
+function playvideo() {
+  if (mantarayanimation.paused) {
+    mantarayanimation.play();
+  }
+  if (mantarayanimation.playing) {
+    console.log("video should be playing now");
+    return;
+  } else {
+    console.log("tried to play video, failed, trying again");
+    playvideo();
+  }
+}
+
+window.onload = playvideo();
+
 </script>
 </head>
 
