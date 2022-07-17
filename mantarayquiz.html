@@ -39,13 +39,13 @@ permanlink: /mantarayquiz/
       display: inline-block; line-height: normal; vertical-align: middle;
       overflow: visible;
     }
-    
+
     @keyframes blinking {
       0% {opacity: 1}
       50% {opacity: 0}
       100% {opacity: 1}
     }
-    
+
     #clicktext {
       animation-name: blinking;
       animation-duration: 2s;
@@ -174,7 +174,7 @@ function listener(i) {
 window.onload = function(){
   //play animation
   mantarayanimation.play();
-    
+
   //bubble maker
   for (let i = 1; i < 10; i++) {
     var newbubble = document.createElement('bubble')
@@ -240,7 +240,7 @@ function right(event) {
      style = "width:80vw;
               position: relative; top: 20px; left: 0px; margin-left: auto; margin-right: auto;
               background-color: #FFFFFF; border: 5px solid black;
-              border-radius: 10px 10px 10px 10px;
+              border-radius: 0px 20px 20px 20px;
               line-height: 10px;">
     <p>
       <b id = "animatingtext">
@@ -253,34 +253,42 @@ function right(event) {
      style = "position: relative; top: 6vh;
               width: 80vw; margin-left: auto; margin-right: auto;
               ">
+
+  <b id = "clicktext"
+     style = "display: none; position: relative; top: -1vh;">
+    Click anywhere to continue...
+  </b>
+
   <div id = "truebuttonholder" style = "display: none;">
     <button id = "buttontopleft"
             style = "font-size: 5vw; font-family: 'Montserrat';
                      position: absolute; left: 0px; top: 0px;
-                     height: 50%; width: 50%;">
+                     height: 50%; width: 50%;
+                     border-radius: 12px;">
       <b style = "pointer-events: none;"></b>
     </button>
     <button id = "buttontopright"
             style = "font-size: 5vw; font-family: 'Montserrat';
                      position: absolute; right: 0px; top: 0px;
-                     height: 50%; width: 50%;">
+                     height: 50%; width: 50%;
+                     border-radius: 12px;">
       <b style = "pointer-events: none;"></b>
     </button>
     <button id = "buttonbottomleft"
             style = "font-size: 5vw; font-family: 'Montserrat';
                      position: absolute; left: 0px; bottom: 0px;
-                     height: 50%; width: 50%;">
+                     height: 50%; width: 50%;
+                     border-radius: 12px;">
       <b style = "pointer-events: none;"></b>
     </button>
     <button id = "buttonbottomright"
             style = "font-size: 5vw; font-family: 'Montserrat';
                      position: absolute; right: 0px; bottom: 0px;
-                     height: 50%; width: 50%;">
+                     height: 50%; width: 50%;
+                     border-radius: 12px;">
       <b style = "pointer-events: none;"></b>
     </button>
   </div>
-  <b id = "clicktext"
-     style = "display: none;"> Click anywhere to continue... <b>
 </div>
 
 <code id = "quiz1" style="display:none">???: Hey there! Do you know what kind of marine animal I am? </code>
