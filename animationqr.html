@@ -130,10 +130,12 @@ function playvideo() {
     mantarayanimation.play();
   }
   if (mantarayanimation.playing) {
+    document.getElementById("tapbuttonpls").style.display = "none";
     console.log("video should be playing now");
     return;
   } else {
     console.log("tried to play video, failed, trying again");
+    document.getElementById("tapbuttonpls").style.display = "inline";
     playvideo();
   }
 }
@@ -312,6 +314,7 @@ window.onload = playvideo();
              style = "width: 5vmax; height: auto;"
              id = "buttonimg"
              />
+        <b id = "tapbuttonpls" style = "position: relative; top: -20px;"> Please tap me! </b>
     </button>
     <div style = "width: 35vmin; 
                   height: auto; 
@@ -346,7 +349,7 @@ window.onload = playvideo();
                      bottom: 70px; 
                      left: 43vw;
                      padding: 1.5vmax 1.5vmax; 
-                     background-color: #e3cc00; 
+                     background-color: #0c9ef2; 
                      border: none;
                      border-radius: 50%;
                      display: none;"
