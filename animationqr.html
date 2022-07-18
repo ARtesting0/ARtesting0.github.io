@@ -122,7 +122,26 @@ permalink: /animationqr/
         
     }
 </script>
+<script>
+//keep trying to play!
+var mantarayanimation = document.getElementById("mantarayanimation");
+function playvideo() {
+  if (mantarayanimation.paused) {
+    mantarayanimation.play();
+  }
+  if (mantarayanimation.playing) {
+    console.log("video should be playing now");
+    return;
+  } else {
+    console.log("tried to play video, failed, trying again");
+    playvideo();
+  }
+}
 
+window.onload = playvideo();
+
+</script>
+        
 <style>
     /* animation of enterbutton poppin in and out */
     .poppin {
