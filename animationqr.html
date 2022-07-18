@@ -97,8 +97,10 @@ permalink: /animationqr/
         if (currentMarker = "pattern-qr-code-animationqr") { 
               if (mantarayanimation.paused) {
                   mantarayanimation.play();
-              } else {
+              } else if (mantarayanimation.playing) {
                   mantarayanimation.pause();
+              } else {
+                  mantarayanimation.play();
               }
         }
     }
