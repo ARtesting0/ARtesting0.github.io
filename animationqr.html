@@ -130,12 +130,10 @@ function playvideo() {
     mantarayanimation.play();
   }
   if (mantarayanimation.playing) {
-    document.getElementById("tapbuttonpls").style.display = "none";
     console.log("video should be playing now");
     return;
   } else {
     console.log("tried to play video, failed, trying again");
-    document.getElementById("tapbuttonpls").style.display = "inline";
     playvideo();
   }
 }
@@ -314,7 +312,6 @@ window.onload = playvideo();
              style = "width: 5vmax; height: auto;"
              id = "buttonimg"
              />
-        <b id = "tapbuttonpls" style = "position: absolute; top: -20px; display: none;"> Please tap me! </b>
     </button>
     <div style = "width: 35vmin; 
                   height: auto; 
