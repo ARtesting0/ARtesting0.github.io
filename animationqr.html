@@ -83,10 +83,12 @@ permalink: /animationqr/
 <script defer> <!--Changes button image when video playing/paused. Dynamic playpause button-->
     function videoplaying(videoID) {
         buttonimg.src = "../files/pause-256.png";
+        enterbutton.classList.remove("poppin");
         console.log("playing video: ", videoID);
     }
     function videopaused(videoID) {
         buttonimg.src = "../files/play-256.png";
+        enterbutton.classList.add("poppin");
         console.log("paused video: ", videoID);
     }
 
@@ -279,6 +281,7 @@ permalink: /animationqr/
     <button
         disabled
         id = "playpausebutton"
+        class = "poppin"
         style = "position: fixed; 
                  right: 5px; 
                  bottom: 5px; 
